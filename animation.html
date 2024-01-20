@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF Background</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        #content-container {
+            position: relative;
+            z-index: 1;
+            color: rgba(193, 64, 64, 0.903); /* Adjust text color for better visibility on the GIF background */
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="background-container"></div>
+    
+    <div id="content-container">
+        <h1>Welcome to My Website</h1>
+        <p>This is some content on the website.</p>
+    </div>
+
+    <script>
+        // Dynamically set GIF as background
+        document.getElementById('background-container').style.backgroundImage = "url('https://bestanimations.com/media/dogs/1050041958cute-funny-dog-animated-gif-13.gif')";
+    </script>
+</body>
+</html>
+
+

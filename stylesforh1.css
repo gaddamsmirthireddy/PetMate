@@ -1,0 +1,76 @@
+body {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: linear-gradient(to right, #1c0e6b 0%, #6e5b5b 50%, #372e6a 100%);
+    color:white;
+}
+p{
+    font-family:'Cinzel', serif;
+}
+
+h1, h2 ,h3,h5,h6,h4 {
+    color:rgb(145, 22, 63);
+    justify-content: center;
+    text-align: center;
+    font-family:'Playfair Display', serif;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"], input[type="date"], input[type="time"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #25adc5;
+    color: rgba(175, 53, 53, 0.667);
+    padding: 10px 20px;
+    border: 20px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: #bc5830;
+}
+/* .image-container{
+    display: inline-block; 
+    margin: 10px;
+    text-align:center;
+}
+  img {
+    max-width: 100%;
+    height: auto; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width:320px;
+    height:250px;
+
+}
+.image-container p {
+    margin-top: 5px;
+}
+.dry-food-container,.wet-food-container,.treats-container,.Raw-container {
+    white-space: nowrap;
+    overflow-x: auto;
+} */
