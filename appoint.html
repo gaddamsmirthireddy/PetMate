@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet-CARE</title>
+    <link rel="stylesheet" href="output.css">
+    <style>
+        @keyframes slideIn {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .registration-form {
+            animation: slideIn 0.5s ease-in-out;
+        }
+    </style>
+
+</head>
+<body class="bg-slate-950">
+    <!-- nav bar -->
+    <nav class="text-black w-full h-14  flex justify-between px-5 md:px-6 bg-white">
+        <div class="pt-2">Pet-Care</div>
+        <ul class="md:flex hidden font-semibold text-center">
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline"><a href="home.html">Home</a></li>
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline"><a href="about.html">About</a></li>
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline"><a href="Services.html">Services</a></li>
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline"><a href="community.html">Community</a></li>
+        </ul>
+        <!-- <div class="text-white hidden md:block px-4 py-2 text-center bg-red-600 rounded-2xl font-bold font-3xl cursor-pointer">login/register</div> -->
+        <div class="md:hidden">
+            <a class="text-4xl" href="#">&#8801;</a>
+        </div>
+    </nav>
+    <!-- nav ends -->
+    <!-- Start Breadcumbs Area -->
+    <div class="bg-cover bg-center h-screen flex md:flex-row" style="background-image: url('/pics9/doct.jpg');">
+        <div class="text-white p-4 flex-1">
+            <div class="container mx-auto h-full">
+                <div class="flex items-center h-full">
+                    <div>
+                        <h2 class="text-4xl font-bold p-5 m-4">Appointment</h2>
+                        <span class="text-sm m-4 p-5 "><a href="#" class="text-white">home</a> / appointment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="md:flex-1">
+            <div class="text-4xl font-bold text-red-600 text-center p-5 my-8 relative cursor-pointer transition-all hover:text-red-800">
+                Book An Appointment
+                <div class="absolute bottom-0 left-0 w-full h-0.5 bg-red-600 origin-left transform scale-x-0 transition-transform duration-300"></div>
+            </div>
+            
+            <div class="container mx-auto mt-10 p-8  bg-transparent rounded-lg shadow-lg registration-form">
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="mb-4">
+                        <label for="appointmentDate" class="block text-gray-700 text-sm font-bold mb-2">Appointment Date:</label>
+                        <input type="date" id="appointmentDate" name="appointmentDate" class="border-2 border-gray-300 p-2 w-full rounded-md">
+                    </div>
+    
+                    <div class="mb-4">
+                        <label for="Time" class="block text-sm font-medium text-gray-700">Appointment Time:</label>
+                        <select id="Time" class="w-full mt-1 p-2 border border-gray-300 rounded-md">
+                            <option value="hide">-- Choose --</option>
+                            <option value="2010">09:00AM - 10:00AM</option>
+                            <option value="2011">10:00AM - 11:00AM</option>
+                            <option value="2012">11:00AM - 12:00PM</option>
+                            <option value="2013">12:00PM - 01:00PM</option>
+                            <option value="2014">01:00PM - 02:00PM</option>
+                            <option value="2015">02:00PM - 03:00PM</option>
+                            <option value="2015">03:00PM - 04:00PM</option>
+                            <option value="2015">04:00PM - 05:00PM</option>
+                            <option value="2015">05:00PM - 06:00PM</option>
+                            <option value="2015">06:00PM - 07:00PM</option>
+                            <option value="2015">07:00PM - 08:00PM</option>
+                            <option value="2015">08:00PM - 09:00PM</option>
+                        </select>
+                    </div>
+    
+                    <!-- Add other form fields here -->
+    
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-900 text-sm font-bold mb-2">Name:</label>
+                        <input type="text" id="name" name="name" class="border-2 border-gray-300 p-2 w-full rounded-md">
+                    </div>
+    
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-900 text-sm font-bold mb-2">Email Address:</label>
+                        <input type="email" id="email" name="email" class="border-2 border-gray-300 p-2 w-full rounded-md">
+                    </div>
+    
+                    <div class="mb-4">
+                        <label for="phone" class="block text-gray-900 text-sm font-bold mb-2">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" class="border-2 border-gray-300 p-2 w-full rounded-md">
+                    </div>
+    
+
+                    <div class="mb-4">
+                        <label for="state" class="block text-gray-700 text-sm font-bold mb-2">State:</label>
+                        <select id="state" class="w-full mt-1 p-2 border border-gray-300 rounded-md">
+                            <option value="hide">-- Choose --</option>
+                            <!-- Add options for different states -->
+                            <!-- Add more states as needed -->
+                        </select>
+                    </div>
+            
+                    <div class="mb-4">
+                        <label for="city" class="block text-gray-700 text-sm font-bold mb-2">City:</label>
+                        <input type="text" id="city" name="city" class="border-2 border-gray-300 p-2 w-full rounded-md" placeholder="Enter your city">
+                    </div>
+                    <div class="col-span-2">
+                        <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+       
+    </div>     
+    <!-- End Breadcumbs Area -->
+    <!-- footer -->
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <div class="container mx-auto">
+            <p>&copy; 2024 Pet-Care. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to get all Indian states
+            function getAllStates() {
+                return [
+                    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
+                    "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand",
+                    "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur",
+                    "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab",
+                    "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura",
+                    "Uttar Pradesh", "Uttarakhand", "West Bengal"
+                ];
+            }
+
+            
+
+            // Populate the state dropdown
+            const stateDropdown = document.getElementById("state");
+            const cityDropdown = document.getElementById("city");
+
+            const states = getAllStates();
+            for (let i = 0; i < states.length; i++) {
+                const state = states[i];
+                const option = document.createElement("option");
+                option.value = state;
+                option.textContent = state;
+                stateDropdown.appendChild(option);
+            }
+
+            // Update cities dropdown based on the selected state
+            stateDropdown.addEventListener("change", function () {
+                const selectedState = stateDropdown.value;
+                const cities = getCitiesForState(selectedState);
+
+                // Clear previous options
+                cityDropdown.innerHTML = "<option value='hide'>-- Choose --</option>";
+
+                // Populate cities dropdown
+                for (let i = 0; i < cities.length; i++) {
+                    const city = cities[i];
+                    const option = document.createElement("option");
+                    option.value = city;
+                    option.textContent = city;
+                    cityDropdown.appendChild(option);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
