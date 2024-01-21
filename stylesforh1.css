@@ -1,14 +1,13 @@
 body {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background: linear-gradient(to right, #1c0e6b 0%, #6e5b5b 50%, #372e6a 100%);
-    color:white;
+    
 }
 p{
     font-family:'Cinzel', serif;
 }
 
 h1, h2 ,h3,h5,h6,h4 {
-    color:rgb(145, 22, 63);
+    color:whitesmoke;
     justify-content: center;
     text-align: center;
     font-family:'Playfair Display', serif;
@@ -53,6 +52,19 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #bc5830;
 }
+.custom-button {
+    background-color: #e0e0e0; 
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .custom-button:hover {
+    background-color: #a0a0a0; 
+  }
+  .custom-button:active {
+    background-color: #4437d1; 
+  }
 /* .image-container{
     display: inline-block; 
     margin: 10px;
