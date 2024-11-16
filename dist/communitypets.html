@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Community</title>
-    <link rel="stylesheet" href="output.css">
     <style>
-   
-    @import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Rubik+Burned&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Rubik+Burned&display=swap');
 
         body {
             font-family: 'Grape Nuts', cursive;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #00A9FF, #89CFF3,#A0E9FF);
-            color-scheme:inherit;
-            color:#161A30;
+            background: linear-gradient(to right, #001f4d, #003366);
+            color: #ffffff;
             font-size: 30px;
             display: flex;
             flex-direction: column;
@@ -23,57 +20,121 @@
         }
 
         header {
-            background-color: paleturquoise;
-            color: #161A30;
+            background-color: black;
+            color: #ffffff;
             padding: 5px;
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: space-between;
             height: 70px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
+
         .header-content {
             display: inline;
             align-items: center;
             justify-content: center;
         }
+
         .logo {
-            height:65px;
-            width:80px;
+            height: 65px;
+            width: 80px;
             margin-right: 10px;
-            align-items: start;
-           
         }
 
-
-
-        #petForm {
+        #petForm, #petList, #authSection, #searchSection, #eventSection, #lostPetsSection, #messageSection, #adoptionSection {
             max-width: 1200px;
-            margin: 10px auto;
-            padding-left:120px;
-            padding-right: 30px;
-            background-color:#CDF5FD;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            padding: 20px;
+            background: linear-gradient(to right, #001f4d, #003366);
+            color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
         }
 
-        #petList {
-            max-width: 1200px;
-            margin: 10px auto;
-            padding-left:20px;
-            
-            background-color: #CDF5FD;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        h2, h3, label {
+            color: #ffffff;
+        }
+
+        form input, form textarea, form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="file"], form button {
+            background-color: #001f4d;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        form button {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .like-button, .submit-comment, button {
+            cursor: pointer;
+            background-color: #001f4d;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .comment-section textarea {
+            width: 90%;
+            padding: 5px;
+        }
+
+        .comment-section {
+            margin-top: 20px;
+        }
+
+        .like-button:hover, .submit-comment:hover {
+            background-color: #00274d;
         }
 
         img {
-            max-width: 125%;
+            max-width: 100%;
             height: auto;
         }
-        .image-container{
-            background-size: cover;
-        }
-        
 
+        .event-card, .pet-post {
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 24px;
+            }
+
+            header {
+                flex-direction: column;
+                height: auto;
+            }
+
+            form input, form textarea, form button {
+                font-size: 18px;
+            }
+
+            .logo {
+                width: 70px;
+                height: 60px;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
@@ -85,69 +146,186 @@
             <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500"><a href="Services.html">Services</a></li>
             <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500"><a href="communitypets.html">Community</a></li>
         </ul>
-        <!-- <div class="text-white hidden md:block px-4 py-2 text-center bg-red-600 rounded-2xl font-bold font-3xl cursor-pointer">login/register</div> -->
         <div class="md:hidden">
             <a class="text-4xl" href="#">&#8801;</a>
         </div>
     </nav>
+    
     <header>
         <h1>Pet Community</h1>
         <div class="header-content"><img src="https://media.gettyimages.com/id/159132783/photo/collie-dog-on-black-background.jpg?s=612x612&w=0&k=20&c=FSVNbnxeQNYhclnz6PSo30fk9-G48e6bp9Dzmk44rx0=" alt="Logo" class="logo"></div>
     </header>
+
+    <!-- User Registration and Profiles -->
+    <div id="authSection">
+        <button id="loginBtn">Login</button>
+        <button id="registerBtn">Register</button>
+        <div id="authForms" style="display: none;">
+            <form id="loginForm" style="display:none;">
+                <h3>Login</h3>
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+                <button type="button" onclick="login()">Login</button>
+            </form>
+            <form id="registerForm" style="display:none;">
+                <h3>Register</h3>
+                <label for="regUsername">Username:</label>
+                <input type="text" id="regUsername" required>
+                <label for="regPassword">Password:</label>
+                <input type="password" id="regPassword" required>
+                <button type="button" onclick="register()">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Pet Form and Posts Section -->
     <div id="petForm">
         <h2>Connect and Communicate with co-pet owners</h2>
-        <div class="image-container"> 
-            <img src="https://imgs.search.brave.com/FU0LfDv7Ly_TdrHbZWlyGOvEmK76W3dHszGcdDKKFBw/rs:fit:500:0:0/g:ce/aHR0cHM6Ly93d3cu/dGhlaGFwcHljYXRz/aXRlLmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAxNy8xMS9y/YWdkb2xsLmpwZw">
-        </div>
-        <p>Hi!Iam cassy:/</p>
-        <br>
         <form id="petInfoForm">
             <label for="petName">Pet Name:</label>
             <input type="text" id="petName" required>
-            <br>
             <label for="petType">Pet Type:</label>
             <input type="text" id="petType" required>
-            <br>
             <label for="petDescription">Description:</label>
             <textarea id="petDescription" required></textarea>
-            <br>
             <label for="petImage">Upload Image:</label>
             <input type="file" id="petImage" accept="image/*">
-            <br>
             <label for="petAge"> Pet Age:</label>
             <input type="text" id="petAge">
-            <br>
+            <label for="isAdoptable">Available for Adoption:</label>
+            <input type="checkbox" id="isAdoptable">
             <button type="button" onclick="submitPetInfo()">Submit</button>
         </form>
     </div>
-    <br>
+
     <div id="petList">
         <h2>Recent Pet Posts</h2>
         <div id="petPosts"></div>
     </div>
+
+    <!-- Pet Adoption Section -->
+    <div id="adoptionSection">
+        <h2>Pets Available for Adoption</h2>
+        <div id="adoptablePets"></div>
+    </div>
+
+    <!-- Pet Search and Filter -->
+    <div id="searchSection">
+        <h2>Search for Pets</h2>
+        <label for="petSearchType">Search by Type:</label>
+        <input type="text" id="petSearchType">
+        <label for="petSearchLocation">Search by Location:</label>
+        <input type="text" id="petSearchLocation">
+        <button type="button" onclick="filterPets()">Search</button>
+    </div>
+
+    <!-- Event Creation and Pet Meetups -->
+    <div id="eventSection">
+        <h2>Create a Pet Event</h2>
+        <form id="eventForm">
+            <label for="eventTitle">Event Title:</label>
+            <input type="text" id="eventTitle" required>
+            <label for="eventDate">Event Date:</label>
+            <input type="date" id="eventDate" required>
+            <label for="eventLocation">Location:</label>
+            <input type="text" id="eventLocation" required>
+            <button type="button" onclick="submitEvent()">Create Event</button>
+        </form>
+    </div>
+    <div id="eventsList">
+        <h2>Upcoming Events</h2>
+    </div>
+
+    <!-- Emergency Contact and Lost Pets Alerts -->
+    <div id="lostPetsSection">
+        <h2>Lost Pets Alerts</h2>
+        <label for="lostPetName">Lost Pet Name:</label>
+        <input type="text" id="lostPetName">
+        <label for="lastSeenLocation">Last Seen Location:</label>
+        <input type="text" id="lastSeenLocation">
+        <button type="button" onclick="submitLostPetAlert()">Submit Lost Pet Alert</button>
+    </div>
+
+    <!-- Direct Messaging Section -->
+    <div id="messageSection">
+        <h2>Direct Message a Pet Owner</h2>
+        <label for="recipientUsername">Recipient Username:</label>
+        <input type="text" id="recipientUsername">
+        <label for="messageContent">Message:</label>
+        <textarea id="messageContent"></textarea>
+        <button type="button" onclick="sendMessage()">Send Message</button>
+    </div>
+
     <script>
+        // Handle pet submission
         function submitPetInfo() {
             const petName = document.getElementById("petName").value;
             const petType = document.getElementById("petType").value;
             const petDescription = document.getElementById("petDescription").value;
             const petImage = document.getElementById("petImage").files[0];
             const petAge = document.getElementById("petAge").value;
+            const isAdoptable = document.getElementById("isAdoptable").checked;
 
-            // Create a new post element
             const petPost = document.createElement("div");
+            petPost.classList.add("pet-post");
             petPost.innerHTML = `
-                <h3><em>${petName}</em></h3>
-                <h3><em>${petType}</em></h3>
-                <h3><em>${petAge}</em></h3>
+                <h3>${petName} (${petType}) - ${petAge} years old</h3>
                 <p>${petDescription}</p>
                 <img src="${URL.createObjectURL(petImage)}" alt="${petName}">
+                <p>${isAdoptable ? "Available for adoption" : "Not available for adoption"}</p>
+                <button class="like-button">Like</button>
+                <div class="comment-section">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button class="submit-comment">Submit Comment</button>
+                </div>
             `;
-
-            // Add the new post to the list
             document.getElementById("petPosts").prepend(petPost);
-
-            // Clear the form
             document.getElementById("petInfoForm").reset();
+        }
+
+        // Login functionality
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            alert(`Logged in as ${username}`);
+        }
+
+        // Register functionality
+        function register() {
+            const username = document.getElementById("regUsername").value;
+            const password = document.getElementById("regPassword").value;
+            alert(`Registered as ${username}`);
+        }
+
+        // Pet search functionality
+        function filterPets() {
+            const type = document.getElementById("petSearchType").value;
+            const location = document.getElementById("petSearchLocation").value;
+            alert(`Searching for ${type} pets in ${location}`);
+        }
+
+        // Event creation functionality
+        function submitEvent() {
+            const eventTitle = document.getElementById("eventTitle").value;
+            const eventDate = document.getElementById("eventDate").value;
+            const eventLocation = document.getElementById("eventLocation").value;
+            alert(`Event Created: ${eventTitle} on ${eventDate} at ${eventLocation}`);
+        }
+
+        // Lost pet alert
+        function submitLostPetAlert() {
+            const petName = document.getElementById("lostPetName").value;
+            const lastSeenLocation = document.getElementById("lastSeenLocation").value;
+            alert(`Lost Pet Alert: ${petName} last seen at ${lastSeenLocation}`);
+        }
+
+        // Send message functionality
+        function sendMessage() {
+            const recipientUsername = document.getElementById("recipientUsername").value;
+            const messageContent = document.getElementById("messageContent").value;
+            alert(`Message sent to ${recipientUsername}: ${messageContent}`);
         }
     </script>
 </body>
