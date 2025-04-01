@@ -1,309 +1,691 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>GoodFoodSupplies</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="stylesforh1.css">
-        <script src="script.js"></script>
+        <meta name="description" content="Find the best pet food supplies for your dogs and cats. Quality dry food, wet food, treats, and raw food options.">
+        <meta name="keywords" content="pet food, dog food, cat food, pet treats, pet supplies, pet nutrition">
+        <title>Pet Food Supplies - PetMate</title>
+        <link rel="stylesheet" href="output.css">
         <style>
-        body {
-            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            background-color:rgb(147,197,253);
-            color:rgba(103, 28, 128, 0.888);
-        }
-        .image-container{
-            display: inline-block; 
-            margin: 10px;
-            text-align:center;
-        }
-        img {
-            max-width: 100%;
-            height: auto; 
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            width:320px;
-            height:250px;
-        }
-        .image-container p {
-            margin-top: 5px;
-        }
-            .dry-food-container,.wet-food-container,.treats-container,.Raw-container {
-                white-space: nowrap;
-                overflow-x: auto;
+            body {
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                background-color: #0f172a;
+                color: #ffffff;
+                margin: 0;
+                padding: 0;
+                line-height: 1.6;
             }
-     </style>
-    </head> 
+
+            .hero-section {
+                background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('/pics9/bgk.jpg');
+                background-size: cover;
+                background-position: center;
+                padding: 6rem 2rem;
+                text-align: center;
+                margin-bottom: 3rem;
+                position: relative;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+                margin-bottom: 1.5rem;
+                color: #ffffff;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                animation: fadeInDown 1s ease-out;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+                color: #94a3b8;
+                max-width: 800px;
+                margin: 0 auto;
+                opacity: 0.9;
+            }
+
+            .section-container {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 2rem;
+            }
+
+            .section-header {
+                text-align: center;
+                margin-bottom: 3rem;
+                position: relative;
+                padding-bottom: 1rem;
+            }
+
+            .section-header::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100px;
+                height: 3px;
+                background: linear-gradient(90deg, #3b82f6, #60a5fa);
+                border-radius: 2px;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+                color: #ffffff;
+                margin-bottom: 1rem;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+            .section-description {
+                color: #94a3b8;
+                font-size: 1.1rem;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .food-section {
+                background: rgba(30, 41, 59, 0.5);
+                border-radius: 15px;
+                padding: 2rem;
+                margin-bottom: 3rem;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .food-section:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+            }
+
+            .food-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+
+            .food-card {
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 12px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .food-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+            }
+
+            .food-image {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+                border-radius: 8px;
+                border: 2px solid transparent;
+                background: linear-gradient(45deg, #3b82f6, #60a5fa, #3b82f6);
+                background-size: 300% 300%;
+                animation: borderGlow 3s ease infinite;
+                padding: 2px;
+            }
+
+            .food-card:hover .food-image {
+                transform: scale(1.05);
+            }
+
+            .food-content {
+                padding: 1.5rem;
+            }
+
+            .food-title {
+                font-size: 1.2rem;
+                color: #ffffff;
+                margin-bottom: 1rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .food-icon {
+                font-size: 1.5rem;
+                color: #60a5fa;
+            }
+
+            .buy-button {
+                background: linear-gradient(45deg, #3b82f6, #60a5fa);
+                color: white;
+                border: none;
+                padding: 0.8rem 1.5rem;
+                border-radius: 8px;
+                cursor: pointer;
+                width: 100%;
+                font-size: 1rem;
+                transition: all 0.3s ease;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: bold;
+                position: relative;
+                overflow: hidden;
+                margin-top: 1rem;
+            }
+
+            .buy-button::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                transition: 0.5s;
+            }
+
+            .buy-button:hover::before {
+                left: 100%;
+            }
+
+            .buy-button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+            }
+
+            @keyframes borderGlow {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+
+            @keyframes fadeInDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .hero-title {
+                    font-size: 2.5rem;
+                }
+
+                .hero-subtitle {
+                    font-size: 1rem;
+                }
+
+                .section-title {
+                    font-size: 2rem;
+                }
+
+                .food-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .hero-section {
+                    padding: 4rem 1rem;
+                }
+
+                .section-title {
+                    font-size: 1.8rem;
+                }
+
+                .food-content {
+                    padding: 1rem;
+                }
+            }
+        </style>
+    </head>
     <body>
-        <section>
-        <h1>Pet Food</h1> 
-        <p>
-            Selecting the right food for your pet depends on various factors such as their age, breed, size, health condition, and personal preferences.Larger and smaller breeds may have different nutritional needs. Some breeds may be more prone to certain health issues, and their diet should be tailored accordingly.Be aware of any allergies or sensitivities your pet may have. Choose a pet food that avoids ingredients your pet is allergic to.We offer a variety of food options/suggestions for your pets over here.
-        </p>
-        <h1>Healthy treats and food for your <strong>dog</strong></h1>
-    </section>
-        <section>
-            <h2>Dry food</h2>
-            <div class="dry-food-container">
-                <div class="image-container">
-                    <a href="http://dl.flipkart.com/dl/purina-proplan-performance-all-life-stages-chicken-12-kg-dry-adult-senior-young-dog-food/p/itmd86a9cb67548a?pid=PFDG5NHQTYMCZUZU&cmpid=product.share.pp&lid=LSTPFDG5NHQTYMCZUZULE6P6T">
-                        <img src="https://rukminim2.flixcart.com/image/416/416/krz97rk0/pet-food/u/p/7/12-dog-npp-per12-001-purina-original-imag5nhqgh3g5pfy.jpeg?q=70&crop=false">
-                        <br><div class="custom-button"><button>BuyNow</button></a></div></a>
-                    <p>Purina ProPlan Performance</p>
+        <header>
+            <nav class="text-white w-full h-14 flex justify-between px-5 md:px-6 bg-black" role="navigation" aria-label="Main navigation">
+                <div class="pt-2 font-extrabold text-2xl">
+                    <a href="home.html" aria-label="PetMate Home">PETMATE</a>
                 </div>
-                <div class="image-container">
-                    <a href="https://amzn.eu/d/iAaRbct">
-                        <img src="https://m.media-amazon.com/images/I/71ZTpFAClLL._SX522_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div></a>
-                    <p>Drools Chicken and Egg Puppy Dog Food</p>
+                <ul class="md:flex hidden font-semibold text-center" role="menubar">
+                    <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="home.html">Home</a></li>
+                    <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="about.html">About</a></li>
+                    <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="Services.html">Services</a></li>
+                    <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="communitypets.html">Community</a></li>
+                </ul>
+                <button class="md:hidden text-4xl" aria-label="Toggle menu" aria-expanded="false">
+                    &#8801;
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero-section">
+                <h1 class="hero-title">Pet Food Supplies</h1>
+                <p class="hero-subtitle">Discover premium quality food options for your beloved pets. From dry food to treats, we've got everything covered.</p>
+            </section>
+
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Dog Food Collection</h2>
+                    <p class="section-description">Selecting the right food for your dog depends on various factors such as their age, breed, size, and health condition. We offer a variety of food options tailored to meet your dog's specific needs.</p>
                 </div>
-                <div class="image-container">
-                    <a href="http://dl.flipkart.com/dl/pedigree-adult-meat-rice-3-kg-dry-dog-food/p/itm804727a8eb374?pid=PFDEG58ZGZCKFZBQ&cmpid=product.share.pp&lid=LSTPFDEG58ZGZCKFZBQYB0XJ6">
-                        <img src="https://rukminim2.flixcart.com/image/416/416/xif0q/pet-food/f/g/4/-original-imagtahv3cmzgfns.jpeg?q=70&crop=false">
-                        <br><div class="custom-button"><button>BuyNow</button></div></a>
-                    <p>PEDIGREE Chicken AND Vegetable</p>
+
+                <!-- Dry Food Section -->
+                <section class="food-section">
+                    <h2 class="section-title">Dry Food</h2>
+                    <div class="food-grid">
+                        <div class="food-card">
+                            <img src="https://rukminim2.flixcart.com/image/416/416/krz97rk0/pet-food/u/p/7/12-dog-npp-per12-001-purina-original-imag5nhqgh3g5pfy.jpeg?q=70&crop=false" alt="Purina ProPlan Performance" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🍖</span>
+                                    Purina ProPlan Performance
+                                </h3>
+                                <a href="http://dl.flipkart.com/dl/purina-proplan-performance-all-life-stages-chicken-12-kg-dry-adult-senior-young-dog-food/p/itmd86a9cb67548a?pid=PFDG5NHQTYMCZUZU&cmpid=product.share.pp&lid=LSTPFDG5NHQTYMCZUZULE6P6T" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/71ZTpFAClLL._SX522_.jpg" alt="Drools Chicken and Egg Puppy Dog Food" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🐾</span>
+                                    Drools Chicken and Egg Puppy Dog Food
+                                </h3>
+                                <a href="https://amzn.eu/d/iAaRbct" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://rukminim2.flixcart.com/image/416/416/xif0q/pet-food/f/g/4/-original-imagtahv3cmzgfns.jpeg?q=70&crop=false" alt="PEDIGREE Chicken AND Vegetable" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🐾</span>
+                                    PEDIGREE Chicken AND Vegetable
+                                </h3>
+                                <a href="http://dl.flipkart.com/dl/pedigree-adult-meat-rice-3-kg-dry-dog-food/p/itm804727a8eb374?pid=PFDEG58ZGZCKFZBQ&cmpid=product.share.pp&lid=LSTPFDEG58ZGZCKFZBQYB0XJ6" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://rukminim2.flixcart.com/image/416/416/kua4r680/pet-food/e/a/b/0-8-dog-2-vit-immunity-110-tablets-each-drools-original-imag7fdtqhakc2cs.jpeg?q=70&crop=false" alt="Drools Drools Absolte Vit-Immunity" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">💊</span>
+                                    Drools Drools Absolte Vit-Immunity
+                                </h3>
+                                <a href="https://www.flipkart.com/drools-absolte-vit-immunity-110-tablets-each-0-8-kg-2x0-4-kg-dry-adult-new-born-senior-young-dog-food/p/itmf571da1fa450d?pid=PFDG7FDTWE7HQXD4&lid=LSTPFDG7FDTWE7HQXD4NLT3Y5&marketplace=FLIPKART&store=p3t%2Fea3%2F8zj&srno=b_19_434&otracker=browse&fm=organic&iid=dece7dd8-059d-449a-9b51-a7c2e6f2649e.PFDG7FDTWE7HQXD4.SEARCH&ppt=browse&ppn=browse&ssid=xn5fvjp5pc0000001705574351026" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Wet Food Section -->
+                <section class="food-section">
+                    <h2 class="section-title">Wet Food</h2>
+                    <div class="food-grid">
+                        <div class="food-card">
+                            <img src="https://rukminim2.flixcart.com/image/416/416/xif0q/pet-food/9/g/f/-original-imagqtgyezunnugh.jpeg?q=70&crop=false" alt="Drools Chunks in gravy" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🥫</span>
+                                    Drools Chunks in gravy for Puppy
+                                </h3>
+                                <a href="http://dl.flipkart.com/dl/drools-chunks-gravy-puppy-chicken-liver-real-3-6-kg-24x0-15-kg-wet-young-dog-food/p/itm69c4ce1fd60c5?pid=PFDFSEMZZJMDXQE6&cmpid=product.share.pp&lid=LSTPFDFSEMZZJMDXQE6UDJWES" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://rukminim2.flixcart.com/image/416/416/l3xcr680/pet-treat/v/t/p/4-020-dog-48-dog-mix-48-x-85-gms-moochie-original-imagexv2z2hswfmt.jpeg?q=70&crop=false" alt="Moochie Dog All Flavour Mix" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🐾</span>
+                                    Moochie Dog All Flavour Mix
+                                </h3>
+                                <a href="http://dl.flipkart.com/dl/moochie-dog-all-flavour-mix-12-x-85-gms-food-wet-12-pouches-salmon-lamb-duck-chicken-treat/p/itm97b4dec5b253f?pid=PTTGEXV9UG65ACUF&cmpid=product.share.pp&lid=LSTPTTGEXV9UG65ACUFLCJZR5" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://rukminim2.flixcart.com/image/416/416/l2f20sw0/pet-food/w/1/1/0-15-dog-15-9950483-drools-original-imagdrn6vjyyhh8x.jpeg?q=70&crop=false" alt="Drools Sanjeev Kapoor'sVeggie Chicken" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🥫</span>
+                                    Drools Sanjeev Kapoor'sVeggie Chicken
+                                </h3>
+                                <a href="https://amzn.eu/d/0qDeYea" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/615atgQUf-L._SX522_PIbundle-12,TopRight,0,0_AA522SH20_.jpg" alt="SMARTHEART Pouch Wet Dog Food" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🥫</span>
+                                    SMARTHEART Pouch Wet Dog Food
+                                </h3>
+                                <a href="https://amzn.eu/d/0qDeYea" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Treats Section -->
+                <section class="food-section">
+                    <h2 class="section-title">Treats</h2>
+                    <div class="food-grid">
+                        <div class="food-card">
+                            <img src="https://rukminim2.flixcart.com/image/416/416/k76ihe80/pet-treat/h/a/e/1-dog-oven-baked-real-chicken-dog-biscuits-chicken-flavour-dog-original-imafpgzvurfnn3ax.jpeg?q=70&crop=false" alt="IndoPets Oven Baked Biscuits" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🍪</span>
+                                    IndoPets Oven Baked Real Chicken Dog Biscuits
+                                </h3>
+                                <a href="http://dl.flipkart.com/dl/indopets-oven-baked-real-chicken-dog-biscuits-flavour-treat-1-kg-1-kg/p/itm3056e8625f868?pid=PTTFPGDGHHMCMHAE&cmpid=product.share.pp&lid=LSTPTTFPGDGHHMCMHAEOILQQL" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://rukminim2.flixcart.com/image/416/416/kynb6vk0/pet-treat/q/y/j/300-dog-1-9950220-drools-original-imagatxgzgckgd9r.jpeg?q=70&crop=false" alt="Drools Absolute Milk Bone" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🦴</span>
+                                    Drools Absolute Milk Bone
+                                </h3>
+                                <a href="http://dl.flipkart.com/dl/drools-absolute-milk-bone-jar-20-pieces-dog-treat/p/itm85d52fd01d51c?pid=PTTGATX4TFQKZVGQ&cmpid=product.share.pp&lid=LSTPTTGATX4TFQKZVGQREP88A" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://rukminim2.flixcart.com/image/416/416/ko0d6kw0/pet-treat/6/n/k/400-dog-932093-purepet-original-imag2k3mjebv6gja.jpeg?q=70&crop=false" alt="purepet Mutton Munchy Sticks Dog Treat" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🍖</span>
+                                    purepet Mutton Munchy Sticks Dog Treat
+                                </h3>
+                                <a href="http://dl.flipkart.com/dl/purepet-mutton-munchy-sticks-dog-treat/p/itm884cf0cd5539a?pid=PTTG2K3JEHYASDF3&cmpid=product.share.pp&lid=LSTPTTG2K3JEHYASDF3BEGZKL" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/71IHKbuambL._SY879_.jpg" alt="Chicken Flavour Real Chicken Biscuit" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🍪</span>
+                                    Chicken Flavour Real Chicken Biscuit
+                                </h3>
+                                <a href="https://amzn.eu/d/gOm3oqo" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Raw Food Section -->
+                <section class="food-section">
+                    <h2 class="section-title">Raw Food</h2>
+                    <div class="food-grid">
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/61ZaVMeAoIL._SX522_.jpg" alt="Raw Chicken Team Breeder" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🥩</span>
+                                    Raw Chicken Team Breeder
+                                </h3>
+                                <a href="https://amzn.eu/d/dhHi94N" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/7159tpXx9lL._SX522_.jpg" alt="Acana puppy Grain Free Dry Dog Food" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🌾</span>
+                                    Acana puppy Grain Free Dry Dog Food
+                                </h3>
+                                <a href="https://amzn.eu/d/eeK5ZZ1" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/61ryadq7LUL._SX522_.jpg" alt="Grain Free Dog Food" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🌾</span>
+                                    Grain Free Dog Food
+                                </h3>
+                                <a href="https://amzn.eu/d/eqKLGOE" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/61NhQgsn+wL._SX522_.jpg" alt="Puppy Large Grain Free" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🌾</span>
+                                    Puppy Large Grain Free
+                                </h3>
+                                <a href="https://amzn.eu/d/99cJN0a" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Cat Food Section -->
+                <div class="section-header">
+                    <h2 class="section-title">Cat Food Collection</h2>
+                    <p class="section-description">Cats savor the delights of their favorite foods with discerning taste and enthusiasm. Choose from our selection of premium cat food options.</p>
                 </div>
-                <div class="image-container">
-                    <a href="https://www.flipkart.com/drools-absolte-vit-immunity-110-tablets-each-0-8-kg-2x0-4-kg-dry-adult-new-born-senior-young-dog-food/p/itmf571da1fa450d?pid=PFDG7FDTWE7HQXD4&lid=LSTPFDG7FDTWE7HQXD4NLT3Y5&marketplace=FLIPKART&store=p3t%2Fea3%2F8zj&srno=b_19_434&otracker=browse&fm=organic&iid=dece7dd8-059d-449a-9b51-a7c2e6f2649e.PFDG7FDTWE7HQXD4.SEARCH&ppt=browse&ppn=browse&ssid=xn5fvjp5pc0000001705574351026">
-                        <img src="https://rukminim2.flixcart.com/image/416/416/kua4r680/pet-food/e/a/b/0-8-dog-2-vit-immunity-110-tablets-each-drools-original-imag7fdtqhakc2cs.jpeg?q=70&crop=false">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Drools Drools Absolte Vit-Immunity</p>
-                </div>
+
+                <!-- Dry Food Section -->
+                <section class="food-section">
+                    <h2 class="section-title">Dry Food</h2>
+                    <div class="food-grid">
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/61HbA7XklpL._SX522_.jpg" alt="Whiskas Dry Cat Food" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🐾</span>
+                                    Whiskas Dry Cat Food
+                                </h3>
+                                <a href="https://amzn.eu/d/38QXTqJ" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/71PON0RBeyL._SY879_.jpg" alt="Purepet Fish Adult Food" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🐟</span>
+                                    Purepet Fish Adult Food
+                                </h3>
+                                <a href="https://amzn.eu/d/hN2DN68" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://rukminim2.flixcart.com/image/416/416/l4d2ljk0/pet-food/s/p/i/-original-imagfa2g9whz8f3j.jpeg?q=70&crop=false" alt="Kitty Ocean Fish Cat Food" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🐟</span>
+                                    Kitty Ocean Fish Cat Food
+                                </h3>
+                                <a href="http://dl.flipkart.com/dl/kitty-yums-ocean-fish-1-2-kg-dry-young-cat-food/p/itmbaedcf9ed454b?pid=PFDG9YCZF5QD8JWY&cmpid=product.share.pp&lid=LSTPFDG9YCZF5QD8JWYAOB5UK" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://rukminim2.flixcart.com/image/416/416/kcm9t3k0/pet-food/5/f/y/3-cat-21055627040055ax-me-o-original-imaftphgzcurgumu.jpeg?q=70&crop=false" alt="Me-O Mackeral Adult Dry Cat Food" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🐾</span>
+                                    Me-O Mackeral Adult Dry Cat Food
+                                </h3>
+                                <a href="http://dl.flipkart.com/dl/me-o-mackeral-3-kg-dry-adult-cat-food/p/itm542d92246d98e?pid=PFDFZX7TBMNJD5FY&cmpid=product.share.pp&lid=LSTPFDFZX7TBMNJD5FYCNPB0B" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Wet Food Section -->
+                <section class="food-section">
+                    <h2 class="section-title">Wet Food</h2>
+                    <div class="food-grid">
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/815cjRXMoqL._AC_SX466_.jpg" alt="Hill's Science Diet Adult Wet Cat Food" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🥫</span>
+                                    Hill's Science Diet Adult Wet Cat Food
+                                </h3>
+                                <a href="https://www.amazon.com/dp/B083FHBRM6?ref_=cm_sw_r_cp_ud_dp_5RNXMY4WT4TKCAEDGBFB" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/81K7YvcfLpL._AC_SX466_.jpg" alt="Purina Pro Plan Urinary Tract Cat Food" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🥫</span>
+                                    Purina Pro Plan Urinary Tract Cat Food
+                                </h3>
+                                <a href="https://amzn.eu/d/0GxwEVb" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/61pZMvBGHaL._AC_SX679_.jpg" alt="Rachael Ray Nutrish Purrfect" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🥫</span>
+                                    Rachael Ray Nutrish Purrfect
+                                </h3>
+                                <a href="https://a.co/d/0GxwEVb" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/91b7ae8ixVL.__AC_SX300_SY300_QL70_FMwebp_.jpg" alt="9Lives Paté Favorites Wet Cat Food" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🥫</span>
+                                    9Lives Paté Favorites Wet Cat Food
+                                </h3>
+                                <a href="https://a.co/d/7rMniiy" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Treats Section -->
+                <section class="food-section">
+                    <h2 class="section-title">Treats</h2>
+                    <div class="food-grid">
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/61IM48x2Y1L._AC_SX679_.jpg" alt="Catit Nibbly Jerky Cat Treats" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🐾</span>
+                                    Catit Nibbly Jerky Cat Treats
+                                </h3>
+                                <a href="https://media.gettyimages.com/id/852570342/photo/black-dog-on-black-background.jpg?s=612x612&w=0&k=20&c=VP4fzgGxYzfOkDBoHUo9FI_fxO8SZKrtI7E7VsMXIgU=" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/71YLgEfVP1L._AC_SX679_.jpg" alt="Fruitables Cat Treats" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🐾</span>
+                                    Fruitables Cat Treats
+                                </h3>
+                                <a href="https://a.co/d/8aMq7Dz" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/818rwcCd9GL._AC_SL1500_.jpg" alt="Blue Buffalo Bursts Crunchy Cat Treats" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🐾</span>
+                                    Blue Buffalo Bursts Crunchy Cat Treats
+                                </h3>
+                                <a href="https://a.co/d/9jh1VtK" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/81bWQyVba6L._AC_SX679_.jpg" alt="Purina Friskies Cat Treats" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🐾</span>
+                                    Purina Friskies Cat Treats
+                                </h3>
+                                <a href="https://a.co/d/4C0XZc2" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Raw Food Section -->
+                <section class="food-section">
+                    <h2 class="section-title">Raw Food</h2>
+                    <div class="food-grid">
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/71ej0pBCaiL._AC_SX679_.jpg" alt="Stella & Chewy's Freeze-Dried Raw" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🥩</span>
+                                    Stella & Chewy's Freeze-Dried Raw
+                                </h3>
+                                <a href="https://a.co/d/3GMmgCd" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/71eZ47OCVqL._AC_SX679_.jpg" alt="Smallbatch Pets Freeze-Dried" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🥩</span>
+                                    Smallbatch Pets Freeze-Dried
+                                </h3>
+                                <a href="https://a.co/d/dklB29y" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/71GdXUgsMAL._AC_SX679_.jpg" alt="Iams Proactive Health Adult" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🥩</span>
+                                    Iams Proactive Health Adult
+                                </h3>
+                                <a href="https://a.co/d/huXVfJZ" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="food-card">
+                            <img src="https://m.media-amazon.com/images/I/81tKB6mBlOL._AC_SX679_.jpg" alt="Northwest Naturals Gluten-Free" class="food-image">
+                            <div class="food-content">
+                                <h3 class="food-title">
+                                    <span class="food-icon">🌾</span>
+                                    Northwest Naturals Gluten-Free
+                                </h3>
+                                <a href="https://a.co/d/d9ANBxx" class="buy-button">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section>
-            <section>
-            <h2>Wet food</h2>
-            <div class="wet-food-container">
-                <div class="image-container">
-                    <a href="http://dl.flipkart.com/dl/drools-chunks-gravy-puppy-chicken-liver-real-3-6-kg-24x0-15-kg-wet-young-dog-food/p/itm69c4ce1fd60c5?pid=PFDFSEMZZJMDXQE6&cmpid=product.share.pp&lid=LSTPFDFSEMZZJMDXQE6UDJWES">
-                        <img src="https://rukminim2.flixcart.com/image/416/416/xif0q/pet-food/9/g/f/-original-imagqtgyezunnugh.jpeg?q=70&crop=false">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Drools Chunks in gravy for Puppy</p>
-                </div>
-                <div class="image-container">
-                    <a href="http://dl.flipkart.com/dl/moochie-dog-all-flavour-mix-12-x-85-gms-food-wet-12-pouches-salmon-lamb-duck-chicken-treat/p/itm97b4dec5b253f?pid=PTTGEXV9UG65ACUF&cmpid=product.share.pp&lid=LSTPTTGEXV9UG65ACUFLCJZR5 ">
-                        <img src="https://rukminim2.flixcart.com/image/416/416/l3xcr680/pet-treat/v/t/p/4-020-dog-48-dog-mix-48-x-85-gms-moochie-original-imagexv2z2hswfmt.jpeg?q=70&crop=false">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Moochie Dog All Flavour Mix</p>
-                </div>
-                <div class="image-container">
-                    <a href="https://rukminim2.flixcart.com/image/416/416/l2f20sw0/pet-food/w/1/1/0-15-dog-15-9950483-drools-original-imagdrn6vjyyhh8x.jpeg?q=70&crop=false">
-                        <img src="https://rukminim2.flixcart.com/image/416/416/l2f20sw0/pet-food/w/1/1/0-15-dog-15-9950483-drools-original-imagdrn6vjyyhh8x.jpeg?q=70&crop=false">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Drools Sanjeev Kapoor'sVeggie Chicken</p>
-                </div>
-                <div class="image-container">
-                    <a href="https://amzn.eu/d/0qDeYea">
-                        <img src="https://m.media-amazon.com/images/I/615atgQUf-L._SX522_PIbundle-12,TopRight,0,0_AA522SH20_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>SMARTHEART Pouch Wet Dog Food</p>
-                </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white p-4 text-center mt-8" role="contentinfo">
+            <div class="container mx-auto">
+                <p>&copy; 2024 Pet-Care. All rights reserved.</p>
             </div>
-        </section>
-            <section>
-            <h2>Treats</h2>
-            <div class="treats-container">
-                <div class="image-container">
-                    <a href="http://dl.flipkart.com/dl/indopets-oven-baked-real-chicken-dog-biscuits-flavour-treat-1-kg-1-kg/p/itm3056e8625f868?pid=PTTFPGDGHHMCMHAE&cmpid=product.share.pp&lid=LSTPTTFPGDGHHMCMHAEOILQQL ">
-                        <img src="https://rukminim2.flixcart.com/image/416/416/k76ihe80/pet-treat/h/a/e/1-dog-oven-baked-real-chicken-dog-biscuits-chicken-flavour-dog-original-imafpgzvurfnn3ax.jpeg?q=70&crop=false">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>IndoPets Oven Baked Real Chicken Dog Biscuits</p>
-                </div>
-                <div class="image-container">
-                    <a href="http://dl.flipkart.com/dl/drools-absolute-milk-bone-jar-20-pieces-dog-treat/p/itm85d52fd01d51c?pid=PTTGATX4TFQKZVGQ&cmpid=product.share.pp&lid=LSTPTTGATX4TFQKZVGQREP88A ">
-                        <img src="https://rukminim2.flixcart.com/image/416/416/kynb6vk0/pet-treat/q/y/j/300-dog-1-9950220-drools-original-imagatxgzgckgd9r.jpeg?q=70&crop=false">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Drools Absolute Milk Bone</p>
-                </div>
-                <div class="image-container">
-                    <a href="http://dl.flipkart.com/dl/purepet-mutton-munchy-sticks-dog-treat/p/itm884cf0cd5539a?pid=PTTG2K3JEHYASDF3&cmpid=product.share.pp&lid=LSTPTTG2K3JEHYASDF3BEGZKL">
-                        <img src="https://rukminim2.flixcart.com/image/416/416/ko0d6kw0/pet-treat/6/n/k/400-dog-932093-purepet-original-imag2k3mjebv6gja.jpeg?q=70&crop=false">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>purepet Mutton Munchy Sticks Dog Treat</p>
-                </div>
-                <div class="image-container">
-                    <a href="https://amzn.eu/d/gOm3oqo">
-                        <img src="https://m.media-amazon.com/images/I/71IHKbuambL._SY879_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Chicken Flavour Real Chicken Biscuit</p>
-                </div>
-            </div>
-        </section>
-            <section>
-            <h2>Raw Food</h2>
-            <div class="Raw-container">
-                <div class="image-container">
-                    <a href="https://amzn.eu/d/dhHi94N">
-                        <img src="https://m.media-amazon.com/images/I/61ZaVMeAoIL._SX522_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Raw Chicken Team Breeder</p>
-                </div>
-                <div class="image-container">
-                    <a href="https://amzn.eu/d/eeK5ZZ1">
-                        <img src="https://m.media-amazon.com/images/I/7159tpXx9lL._SX522_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Acana puppy Grain Free Dry Dog Food</p>
-                </div>
-                <div class="image-container">
-                    <a href="https://amzn.eu/d/eqKLGOE">
-                        <img src="https://m.media-amazon.com/images/I/61ryadq7LUL._SX522_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Grain Free Dog Food</p>
-                </div>
-                <div class="image-container">
-                    <a href="https://amzn.eu/d/99cJN0a">
-                        <img src="https://m.media-amazon.com/images/I/61NhQgsn+wL._SX522_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Puppy Large Grain Free</p>
-                </div>
-            </div>
-        </section>
-        <section>
-        <h1><b>Cats</b> savor the delights of their favorite foods with discerning taste and enthusiasm.</h1>
-        <h1>choose your cat food</h1>
-    </section>
-        <section>
-        <h2>Dry food</h2>
-            <div class="dry-food-container">
-                <div class="image-container">
-                    <a href="https://amzn.eu/d/38QXTqJ">
-                        <img src="https://m.media-amazon.com/images/I/61HbA7XklpL._SX522_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></a></div>
-                    <p>Whiskas Dry Cat Food</p>
-                </div>
-                <div class="image-container">
-                    <a href="https://amzn.eu/d/hN2DN68">
-                        <img src="https://m.media-amazon.com/images/I/71PON0RBeyL._SY879_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div></a>
-                    <p>Purepet Fish Adult Food</p>
-                </div>
-                <div class="image-container">
-                    <a href="http://dl.flipkart.com/dl/kitty-yums-ocean-fish-1-2-kg-dry-young-cat-food/p/itmbaedcf9ed454b?pid=PFDG9YCZF5QD8JWY&cmpid=product.share.pp&lid=LSTPFDG9YCZF5QD8JWYAOB5UK">
-                        <img src="https://rukminim2.flixcart.com/image/416/416/l4d2ljk0/pet-food/s/p/i/-original-imagfa2g9whz8f3j.jpeg?q=70&crop=false">
-                        <br><div class="custom-button"><button>BuyNow</button></div></a>
-                    <p>Kitty Ocean Fish Cat Food</p>
-                </div>
-                <div class="image-container">
-                    <a href="http://dl.flipkart.com/dl/me-o-mackeral-3-kg-dry-adult-cat-food/p/itm542d92246d98e?pid=PFDFZX7TBMNJD5FY&cmpid=product.share.pp&lid=LSTPFDFZX7TBMNJD5FYCNPB0B ">
-                        <img src="https://rukminim2.flixcart.com/image/416/416/kcm9t3k0/pet-food/5/f/y/3-cat-21055627040055ax-me-o-original-imaftphgzcurgumu.jpeg?q=70&crop=false">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Me-O Mackeral Adult Dry Cat Food</p>
-                </div>
-            </div>
-        </section>
-            <section>
-            <h2>Wet food</h2>
-            <div class="wet-food-container">
-                <div class="image-container">
-                    <a href="https://www.amazon.com/dp/B083FHBRM6?ref_=cm_sw_r_cp_ud_dp_5RNXMY4WT4TKCAEDGBFB">
-                        <img src="https://m.media-amazon.com/images/I/815cjRXMoqL._AC_SX466_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Hill's Science Diet Adult Wet Cat Food </p>
-                </div>
-                <div class="image-container">
-                    <a href="Hill's Science Diet Adult Wet Cat Food ">
-                        <img src="https://m.media-amazon.com/images/I/81K7YvcfLpL._AC_SX466_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Purina Pro Plan Urinary Tract Cat Food</p>
-                </div>
-                <div class="image-container">
-                    <a href="https://a.co/d/0GxwEVb">
-                        <img src="https://m.media-amazon.com/images/I/61pZMvBGHaL._AC_SX679_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <figcaption>Rachael Ray Nutrish Purrfect</figcaption>
-                </div>
-                <div class="image-container">
-                    <a href="https://a.co/d/7rMniiy">
-                        <img src="https://m.media-amazon.com/images/I/91b7ae8ixVL.__AC_SX300_SY300_QL70_FMwebp_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>9Lives Paté Favorites Wet Cat Food</p>
-                </div>
-            </div>
-        </section>
-            <section>
-            <h2>Treats</h2>
-            <div class="treats-container">
-                <div class="image-container">
-                    <a href="https://media.gettyimages.com/id/852570342/photo/black-dog-on-black-background.jpg?s=612x612&w=0&k=20&c=VP4fzgGxYzfOkDBoHUo9FI_fxO8SZKrtI7E7VsMXIgU=">
-                        <img src="https://m.media-amazon.com/images/I/61IM48x2Y1L._AC_SX679_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Catit Nibbly Jerky Cat Treats</p>
-                </div>
-                <div class="image-container">
-                    <a href="https://a.co/d/8aMq7Dz">
-                        <img src="https://m.media-amazon.com/images/I/71YLgEfVP1L._AC_SX679_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Fruitables Cat Treats</p>
-                </div>
-                <div class="image-container">
-                    <a href="https://a.co/d/9jh1VtK">
-                        <img src="https://m.media-amazon.com/images/I/818rwcCd9GL._AC_SL1500_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Blue Buffalo Bursts Crunchy Cat Treats</p>
-                </div>
-                <div class="image-container">
-                    <a href="https://a.co/d/4C0XZc2">
-                        <img src="https://m.media-amazon.com/images/I/81bWQyVba6L._AC_SX679_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Purina Friskies Cat Treats</p>
-                </div>
-            </div>
-        </section>
-            <section>
-            <h2>Raw Food</h2>
-            <div class="Raw-container">
-                <div class="image-container">
-                    <a href="https://a.co/d/3GMmgCd">
-                        <img src="https://m.media-amazon.com/images/I/71ej0pBCaiL._AC_SX679_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Stella & Chewy's Freeze-Dried Raw</p>
-                </div>
-                <div class="image-container">
-                    <a href="https://a.co/d/dklB29y">
-                        <img src="https://m.media-amazon.com/images/I/71eZ47OCVqL._AC_SX679_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Smallbatch Pets Freeze-Dried</p>
-                </div>
-                <div class="image-container">
-                    <a href="https://a.co/d/huXVfJZ">
-                        <img src="https://m.media-amazon.com/images/I/71GdXUgsMAL._AC_SX679_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Iams Proactive Health Adult</p>
-                </div>
-                <div class="image-container">
-                    <a href="https://a.co/d/d9ANBxx">
-                        <img src="https://m.media-amazon.com/images/I/81tKB6mBlOL._AC_SX679_.jpg">
-                        <br><div class="custom-button"><button>BuyNow</button></div>
-                    </a>
-                    <p>Northwest Naturals Gluten-Free</p>
-                </div>
-            </div>
-        </section>
-        <h5>Remember that each pet is unique, and what works for one may not work for another. Regular veterinary check-ups and open communication with your veterinarian are crucial for ensuring your pet's health and well-being.</h5>
-    </body> 
-    </html>
+        </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Mobile menu toggle
+                const menuButton = document.querySelector('button[aria-label="Toggle menu"]');
+                if (menuButton) {
+                    menuButton.addEventListener('click', () => {
+                        const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+                        menuButton.setAttribute('aria-expanded', !isExpanded);
+                        // Add your mobile menu toggle logic here
+                    });
+                }
+
+                // Animate sections on scroll
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                document.querySelectorAll('.food-section').forEach(section => {
+                    observer.observe(section);
+                });
+            });
+        </script>
+    </body>
+</html>

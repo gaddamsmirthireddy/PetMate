@@ -3,168 +3,428 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services</title>
+    <meta name="description" content="PetMate's comprehensive pet services including grooming, veterinary care, training, and more. Professional care for your beloved pets.">
+    <meta name="keywords" content="pet services, pet grooming, veterinary care, pet training, pet care services">
+    <title>Our Services - PetMate</title>
     <link rel="stylesheet" href="output.css">
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Care Services</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <style>
-        .card:hover {
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #0f172a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('/pics9/bgk.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-image {
             transform: scale(1.05);
         }
-    </style>
-    <style>
-        /* Additional styling if needed */
-    
-        .card {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+
+        .service-content {
+            padding: 1.5rem;
         }
 
-        .card.animate {
-            opacity: 1;
-            transform: translateY(0);
+        .service-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-icon {
+            font-size: 1.8rem;
+            color: #60a5fa;
+        }
+
+        .service-description {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .service-features li {
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: #60a5fa;
+            position: absolute;
+            left: 0;
+        }
+
+        .book-button {
+            background: linear-gradient(45deg, #3b82f6, #60a5fa);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .book-button:hover::before {
+            left: 100%;
+        }
+
+        .book-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .contact-section {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-title {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: #60a5fa;
+        }
+
+        .contact-text {
+            color: #94a3b8;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 4rem 1rem;
+            }
+
+            .service-title {
+                font-size: 1.3rem;
+            }
+
+            .service-content {
+                padding: 1rem;
+            }
         }
     </style>
-
 </head>
 <body>
-    <nav class="text-black w-full h-14  flex justify-between px-5 md:px-6 bg-white">
-        <div class="pt-2 font-extrabold text-2xl">PETMATE</div>
-        <ul class="md:flex hidden font-semibold text-center">
-                <li class="mx-[10px] cursor-pointer pt-2 hover:underline"><a href="home.html">Home</a></li>
-                <li class="mx-[10px] cursor-pointer pt-2 hover:underline"><a href="about.html">About</a></li>
-                <li class="mx-[10px] cursor-pointer pt-2 hover:underline"><a href="Services.html">Services</a></li>
-                <li class="mx-[10px] cursor-pointer pt-2 hover:underline"><a href="communitypets.html">Community</a></li>
-        </ul>
-        <!-- <div class="text-white hidden md:block px-4 py-2 text-center bg-red-600 rounded-2xl font-bold font-3xl cursor-pointer">login/register</div> -->
-        <div class="md:hidden">
-            <a class="text-4xl" href="#">&#8801;</a>
-        </div>
-    </nav>
+    <header>
+        <nav class="text-white w-full h-14 flex justify-between px-5 md:px-6 bg-black" role="navigation" aria-label="Main navigation">
+            <div class="pt-2 font-extrabold text-2xl">
+                <a href="home.html" aria-label="PetMate Home">PETMATE</a>
+            </div>
+            <ul class="md:flex hidden font-semibold text-center" role="menubar">
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="home.html">Home</a></li>
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="about.html">About</a></li>
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="Services.html" aria-current="page">Services</a></li>
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="communitypets.html">Community</a></li>
+            </ul>
+            <button class="md:hidden text-4xl" aria-label="Toggle menu" aria-expanded="false">
+                &#8801;
+            </button>
+        </nav>
+    </header>
 
-<!-- Header Section -->
-<header class="bg-blue-500 text-white text-center py-4">
-    <h1 class="text-4xl font-bold">Pet Care Services</h1>
-</header>
+    <main>
+        <section class="hero-section">
+            <h1 class="hero-title">Our Services</h1>
+            <p class="hero-subtitle">Professional care and services for your beloved pets. From grooming to veterinary care, we've got everything covered.</p>
+        </section>
 
-<!-- Services Section -->
-<section class="container mx-auto my-8 flex justify-center gap-4 ">
-    <!-- Adoption -->
-    <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 xl:w-1/4 mb-8 card transform transition-transform duration-300">
-        <div class="bg-white p-4 rounded-lg shadow-md">
-            <a href="petAdoption.html">
-                <img src="/pics9/adpt.webp" alt="Pet Adoption" class="w-full h-64 object-cover mb-4">
-                <h2 class="text-2xl font-bold">Adoption</h2>
-            </a>
-            <p>Make a positive impact by choosing adoption. Give a homeless pet a second chance at happiness, and experience the fulfillment that comes with providing a loving home.</p>
-        </div>
-    </div>
+        <div class="services-container">
+            <div class="services-grid">
+                <!-- Adoption Service -->
+                <div class="service-card">
+                    <img src="/pics9/adpt.webp" alt="Pet Adoption" class="service-image">
+                    <div class="service-content">
+                        <h3 class="service-title">
+                            <span class="service-icon">🏠</span>
+                            Pet Adoption
+                        </h3>
+                        <p class="service-description">Make a positive impact by choosing adoption. Give a homeless pet a second chance at happiness.</p>
+                        <ul class="service-features">
+                            <li>Comprehensive Pet Profiles</li>
+                            <li>Matching System</li>
+                            <li>Adoption Support</li>
+                            <li>Post-Adoption Care</li>
+                        </ul>
+                        <a href="petAdoption.html" class="book-button">Learn More</a>
+                    </div>
+                </div>
 
-    <!-- Food Supplies -->
-    <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 xl:w-1/4 mb-8 card transform transition-transform duration-300 h-full">
-        <div class="bg-white p-4 rounded-lg shadow-md">
-            <a href="food.html">
-                <img src="/pics9/food.webp" alt="Food Supplies" class="w-full h-64 object-cover mb-4">
-                <h2 class="text-2xl font-bold">Food Supplies</h2>
-            </a>
-            <p>Discover a range of premium pet food supplies that prioritize your furry friend's health and well-being. Choose from nutritious options tailored to meet their specific dietary needs.</p>
-        </div>
-    </div>
+                <!-- Food Supplies -->
+                <div class="service-card">
+                    <img src="/pics9/food.webp" alt="Food Supplies" class="service-image">
+                    <div class="service-content">
+                        <h3 class="service-title">
+                            <span class="service-icon">🍽️</span>
+                            Food Supplies
+                        </h3>
+                        <p class="service-description">Discover premium pet food supplies that prioritize your furry friend's health and well-being.</p>
+                        <ul class="service-features">
+                            <li>Premium Nutrition</li>
+                            <li>Specialized Diets</li>
+                            <li>Quality Brands</li>
+                            <li>Dietary Consultation</li>
+                        </ul>
+                        <a href="food.html" class="book-button">Explore</a>
+                    </div>
+                </div>
 
-    <!-- Wellness and Tips -->
-    <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 xl:w-1/4 mb-8 card transform transition-transform duration-300">
-        <div class="bg-white p-4 rounded-lg shadow-md h-full">
-            <a href="wellness.html">
-                <img src="/pics9/doct2.jpg" alt="Wellness and Tips" class="w-full h-64 object-cover mb-4">
-                <h2 class="text-2xl font-bold">Wellness and Tips</h2>
-            </a>
-            <p>Unlock the secrets to holistic pet well-being with our curated wellness tips. From mental stimulation to fitness routines, discover a holistic approach to ensure your pet enjoys a happy and balanced life.</p>
-        </div>
-    </div>
+                <!-- Wellness and Tips -->
+                <div class="service-card">
+                    <img src="/pics9/doct2.jpg" alt="Wellness and Tips" class="service-image">
+                    <div class="service-content">
+                        <h3 class="service-title">
+                            <span class="service-icon">❤️</span>
+                            Wellness and Tips
+                        </h3>
+                        <p class="service-description">Unlock the secrets to holistic pet well-being with our curated wellness tips and advice.</p>
+                        <ul class="service-features">
+                            <li>Health Tips</li>
+                            <li>Exercise Routines</li>
+                            <li>Mental Stimulation</li>
+                            <li>Preventive Care</li>
+                        </ul>
+                        <a href="wellness.html" class="book-button">Learn More</a>
+                    </div>
+                </div>
 
-    <!-- Book Your Appointment -->
-    <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 xl:w-1/4 mb-8 card transform transition-transform duration-300">
-        <div class="bg-white p-4 rounded-lg shadow-md">
-            <a href="appoint.html">
-                <img src="/pics9/app.webp" alt="Book Your Appointment" class="w-full h-64 object-cover mb-4">
-                <h2 class="text-2xl font-bold">Book Your Appointment</h2>
-            </a>
-            <p>Personalize your pet's care by booking appointments for specialized services. From health consultations to pampering spa days, ensure your pet receives individualized attention and care.</p>
-            <button class="bg-blue-500 text-white py-2 px-4 rounded-md text-center hover:bg-blue-700" onclick="redirectToAppointmentPage()">Book Now</button>
+                <!-- Book Appointment -->
+                <div class="service-card">
+                    <img src="/pics9/app.webp" alt="Book Your Appointment" class="service-image">
+                    <div class="service-content">
+                        <h3 class="service-title">
+                            <span class="service-icon">📅</span>
+                            Book Appointment
+                        </h3>
+                        <p class="service-description">Schedule specialized services for your pet's individual needs and care requirements.</p>
+                        <ul class="service-features">
+                            <li>Online Booking</li>
+                            <li>Flexible Scheduling</li>
+                            <li>Service Selection</li>
+                            <li>Reminder System</li>
+                        </ul>
+                        <button class="book-button" onclick="redirectToAppointmentPage()">Book Now</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
 
+        <section class="contact-section">
+            <h2 class="contact-title">Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span class="contact-text">Hyderabad, India</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span class="contact-text">+91 8945234986</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <span class="contact-text">petcare@gmail.com</span>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<!-- Contact Section -->
-<section class="bg-gray-200 py-8 text-center">
-    <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
-
-    <div class="flex justify-center items-center mb-8">
-        <div class="mr-4">
-            <i class="fas fa-map-marker-alt text-2xl text-gray-600"></i>
-        </div>
-        <div>
-            <p class="text-lg font-semibold"> Hyderabad, India</p>
-        </div>
-    </div>
-
-    <div class="flex justify-center items-center mb-8">
-        <div class="mr-4">
-            <i class="fas fa-phone-alt text-2xl text-gray-600"></i>
-        </div>
-        <div>
-            <p class="text-lg font-semibold">Phone: +91 8945234986</p>
-        </div>
-    </div>
-
-    <div class="flex justify-center items-center">
-        <div class="mr-4">
-            <i class="fas fa-envelope text-2xl text-gray-600"></i>
-        </div>
-        <div>
-            <p class="text-lg font-semibold">Email: petcare@gamil.com</p>
-        </div>
-    </div>
-</section>
-<footer class="bg-gray-800 text-white p-4 text-center">
+    <footer class="bg-gray-800 text-white p-4 text-center mt-8" role="contentinfo">
         <div class="container mx-auto">
             <p>&copy; 2024 Pet-Care. All rights reserved.</p>
         </div>
     </footer>
 
-    
-
-
-    <script>
-        function redirectToAppointmentPage() {
-            // Replace 'your-appointment-page.html' with the actual file path
-            window.location.href = 'appoint.html';
-        }
-    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const cards = document.querySelectorAll('.card');
+            // Mobile menu toggle
+            const menuButton = document.querySelector('button[aria-label="Toggle menu"]');
+            if (menuButton) {
+                menuButton.addEventListener('click', () => {
+                    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+                    menuButton.setAttribute('aria-expanded', !isExpanded);
+                    // Add your mobile menu toggle logic here
+                });
+            }
 
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.classList.add('animate');
-                }, index * 200); // Adjust the delay as needed
+            // Animate service cards on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.service-card').forEach(card => {
+                observer.observe(card);
             });
         });
 
         function redirectToAppointmentPage() {
-            // Your function logic here
+            window.location.href = 'appoint.html';
         }
     </script>
-    
 </body>
 </html>

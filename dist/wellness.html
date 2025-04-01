@@ -1,130 +1,451 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wellness and Tips for Pets</title>
-    <!-- Include Tailwind CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta name="description" content="Pet wellness guide - Learn about pet health, nutrition, exercise, and preventive care. Comprehensive tips for keeping your pet healthy and happy.">
+    <meta name="keywords" content="pet wellness, pet health, pet nutrition, pet exercise, preventive care, pet grooming">
+    <title>Pet Wellness Guide - PetMate</title>
+    <link rel="stylesheet" href="output.css">
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #0f172a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('/pics9/bgk.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            border-radius: 2px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-description {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .wellness-section {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .wellness-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .wellness-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .wellness-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .wellness-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .wellness-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #60a5fa;
+        }
+
+        .wellness-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .wellness-content {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .wellness-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .wellness-list li {
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .wellness-list li::before {
+            content: '•';
+            color: #60a5fa;
+            position: absolute;
+            left: 0;
+        }
+
+        .tip-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .tip-title {
+            color: #3b82f6;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-content {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .wellness-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 4rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .wellness-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-blue-300 text-gray-800 font-sans">
+<body>
+    <header>
+        <nav class="text-white w-full h-14 flex justify-between px-5 md:px-6 bg-black" role="navigation" aria-label="Main navigation">
+            <div class="pt-2 font-extrabold text-2xl">
+                <a href="home.html" aria-label="PetMate Home">PETMATE</a>
+            </div>
+            <ul class="md:flex hidden font-semibold text-center" role="menubar">
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="home.html">Home</a></li>
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="about.html">About</a></li>
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="Services.html">Services</a></li>
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="communitypets.html">Community</a></li>
+            </ul>
+            <button class="md:hidden text-4xl" aria-label="Toggle menu" aria-expanded="false">
+                &#8801;
+            </button>
+        </nav>
+    </header>
 
-    <nav class="bg-black text-white flex justify-between items-center px-4 md:px-20 h-16">
-        <div class="font-bold">Pet-Care</div>
-        <ul class="md:flex hidden gap-4">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="Services.html">Services</a></li>
-            <li><a href="communitypets.html">Community</a></li>
-        </ul>
-        <div class="md:hidden">
-            <a class="text-4xl" href="#">&#8801;</a>
+    <main>
+        <section class="hero-section">
+            <h1 class="hero-title">Pet Wellness Guide</h1>
+            <p class="hero-subtitle">Comprehensive tips and information to keep your pet healthy, happy, and thriving</p>
+        </section>
+
+        <div class="section-container">
+            <!-- Nutrition Section -->
+            <section class="wellness-section">
+                <h2 class="section-title">Nutrition</h2>
+                <div class="wellness-grid">
+                    <div class="wellness-card">
+                        <div class="wellness-icon">🍽️</div>
+                        <h3 class="wellness-title">Balanced Diet</h3>
+                        <div class="wellness-content">
+                            <p>Proper nutrition is essential for your pet's health and longevity. Here are key points to consider:</p>
+                            <ul class="wellness-list">
+                                <li>High-quality protein sources</li>
+                                <li>Essential vitamins and minerals</li>
+                                <li>Appropriate portion sizes</li>
+                                <li>Fresh water availability</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="wellness-card">
+                        <div class="wellness-icon">🥩</div>
+                        <h3 class="wellness-title">Dietary Requirements</h3>
+                        <div class="wellness-content">
+                            <p>Different pets have different nutritional needs:</p>
+                            <ul class="wellness-list">
+                                <li>Age-specific formulas</li>
+                                <li>Breed-specific considerations</li>
+                                <li>Health condition diets</li>
+                                <li>Activity level adjustments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">Pro Tip</div>
+                    <div class="tip-content">Consult with your veterinarian to determine the best diet for your pet's specific needs and life stage.</div>
+                </div>
+            </section>
+
+            <!-- Exercise Section -->
+            <section class="wellness-section">
+                <h2 class="section-title">Exercise & Activity</h2>
+                <div class="wellness-grid">
+                    <div class="wellness-card">
+                        <div class="wellness-icon">🏃‍♂️</div>
+                        <h3 class="wellness-title">Physical Activity</h3>
+                        <div class="wellness-content">
+                            <p>Regular exercise is crucial for your pet's physical and mental well-being:</p>
+                            <ul class="wellness-list">
+                                <li>Daily walks for dogs</li>
+                                <li>Play sessions with toys</li>
+                                <li>Interactive games</li>
+                                <li>Swimming (if suitable)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="wellness-card">
+                        <div class="wellness-icon">🧠</div>
+                        <h3 class="wellness-title">Mental Stimulation</h3>
+                        <div class="wellness-content">
+                            <p>Keep your pet's mind active and engaged:</p>
+                            <ul class="wellness-list">
+                                <li>Puzzle toys</li>
+                                <li>Training sessions</li>
+                                <li>Social interaction</li>
+                                <li>Environmental enrichment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Preventive Care Section -->
+            <section class="wellness-section">
+                <h2 class="section-title">Preventive Care</h2>
+                <div class="wellness-grid">
+                    <div class="wellness-card">
+                        <div class="wellness-icon">💉</div>
+                        <h3 class="wellness-title">Vaccinations</h3>
+                        <div class="wellness-content">
+                            <p>Stay up-to-date with essential vaccinations:</p>
+                            <ul class="wellness-list">
+                                <li>Core vaccines</li>
+                                <li>Booster shots</li>
+                                <li>Travel requirements</li>
+                                <li>Vaccination schedule</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="wellness-card">
+                        <div class="wellness-icon">🔍</div>
+                        <h3 class="wellness-title">Regular Check-ups</h3>
+                        <div class="wellness-content">
+                            <p>Preventive health care measures:</p>
+                            <ul class="wellness-list">
+                                <li>Annual examinations</li>
+                                <li>Dental care</li>
+                                <li>Parasite prevention</li>
+                                <li>Weight monitoring</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Grooming Section -->
+            <section class="wellness-section">
+                <h2 class="section-title">Grooming & Hygiene</h2>
+                <div class="wellness-grid">
+                    <div class="wellness-card">
+                        <div class="wellness-icon">🛁</div>
+                        <h3 class="wellness-title">Regular Grooming</h3>
+                        <div class="wellness-content">
+                            <p>Maintain your pet's hygiene and appearance:</p>
+                            <ul class="wellness-list">
+                                <li>Bathing schedule</li>
+                                <li>Brushing routine</li>
+                                <li>Nail trimming</li>
+                                <li>Ear cleaning</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="wellness-card">
+                        <div class="wellness-icon">👕</div>
+                        <h3 class="wellness-title">Coat Care</h3>
+                        <div class="wellness-content">
+                            <p>Proper coat maintenance:</p>
+                            <ul class="wellness-list">
+                                <li>Regular brushing</li>
+                                <li>Seasonal care</li>
+                                <li>Skin health</li>
+                                <li>Mat prevention</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mental Health Section -->
+            <section class="wellness-section">
+                <h2 class="section-title">Mental Health & Well-being</h2>
+                <div class="wellness-grid">
+                    <div class="wellness-card">
+                        <div class="wellness-icon">❤️</div>
+                        <h3 class="wellness-title">Emotional Support</h3>
+                        <div class="wellness-content">
+                            <p>Ensure your pet's emotional well-being:</p>
+                            <ul class="wellness-list">
+                                <li>Quality time together</li>
+                                <li>Comfortable environment</li>
+                                <li>Stress management</li>
+                                <li>Social interaction</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="wellness-card">
+                        <div class="wellness-icon">🎮</div>
+                        <h3 class="wellness-title">Enrichment Activities</h3>
+                        <div class="wellness-content">
+                            <p>Keep your pet mentally stimulated:</p>
+                            <ul class="wellness-list">
+                                <li>Interactive toys</li>
+                                <li>Training exercises</li>
+                                <li>Environmental changes</li>
+                                <li>Social playtime</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </nav>
+    </main>
 
-    <section class="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md animate__animated animate__fadeIn animate__delay-1s">
-        <h1 class="text-4xl text-red-600 mb-4">Wellness and Tips for Pets</h1>
-        <p class="text-lg">Here is some useful information and advice that you need to know before adopting your pet.</p>
-        <section class="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md animate__animated animate__fadeIn animate__delay-1s">
-            <h2 class="text-2xl text-red-600 mb-4">Pets Regular Walks</h2>
-            <p class="text-lg">Regular walks play a pivotal role in the holistic well-being of our beloved pets. As paws tread upon familiar paths or explore new terrain, the rhythmic cadence of a stroll contributes to the maintenance of optimal weight, joint flexibility, and cardiovascular health. Moreover, the olfactory feast encountered during walks enriches a pet's mental landscape, offering a spectrum of scents to ignite their curious minds.Regular walks transcend routine; they are a cornerstone of a pet's happiness.</p>
-        </section>
-    
-        <section class="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md animate__animated animate__fadeIn animate__delay-1s">
-            <h2 class="text-2xl text-red-600 mb-4">Pets Grooming</h2>
-            <p class="text-lg">Grooming for pets is a ritual of care that extends far beyond the aesthetics, encompassing a spectrum of health and wellness benefits. This dedicated practice involves the maintenance of a pet's physical appearance through activities such as brushing, bathing, nail trimming, and ear cleaning.Grooming sessions act as a preventive measure against potential health issues.It's an opportunity for owners to conduct a hands-on health check, identifying any abnormalities or underlying health concerns.</p>
-        </section>
-    
-        <section class="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md animate__animated animate__fadeIn animate__delay-1s">
-            <h2 class="text-2xl text-red-600 mb-4">Pets Training</h2>
-            <p class="text-lg">Pet training is a transformative journey that fosters obedience, positive behaviors, and a strong bond between pets and owners.It's a dynamic process that not only instills essential commands but also strengthens the mutual understanding and trust essential for a harmonious relationship.</p>
-        </section>
-    </section>
+    <footer class="bg-gray-800 text-white p-4 text-center mt-8" role="contentinfo">
+        <div class="container mx-auto">
+            <p>&copy; 2024 Pet-Care. All rights reserved.</p>
+        </div>
+    </footer>
 
-    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mobile menu toggle
+            const menuButton = document.querySelector('button[aria-label="Toggle menu"]');
+            if (menuButton) {
+                menuButton.addEventListener('click', () => {
+                    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+                    menuButton.setAttribute('aria-expanded', !isExpanded);
+                    // Add your mobile menu toggle logic here
+                });
+            }
 
-    <section class="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md">
-        <h2 class="text-2xl text-red-600 mb-4">Things to do to make sure your pet's health</h2>
-        <p class="text-lg">Indulge in the wisdom of seasoned pet guardianship, as advised by the venerable custodians...</p>
-        <div class="image-container"><img src="https://tse1.mm.bing.net/th?id=OIP.eYgI1rP0eeagjlqwXo-ttQHaE8&pid=Api&P=0&h=180" alt="PETS"></div>
-        <ul class="list-disc pl-8">
-            <li>Keep your pet at a healthy weight</li>
-            <li>Exercise your pet</li>
-            <li>Feed your pet a balanced, nutritious diet</li>
-            <li>Have your veterinarian examine your pet at least once a year</li>
-            <li>Vaccinate your pet against potentially deadly diseases</li>
-            <li>Keep your pet free of parasites</li>
-        </ul>
-    </section>
-    <section class="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md">
-        <h2 class="text-2xl text-red-600 mb-4">Pet Care Tips for Cats and Dogs</h2>
-        <ul class="list-disc pl-8">
-            <li>Veterinarian Visits</li>
-            <li>Vaccinations</li>
-            <li>Proper Identification</li>
-            <li>Spaying and Neutering</li>
-            <li>Dental Care</li>
-            <li>Grooming</li>
-            <li>Exercise and Enrichment</li>
-            <li>Nutrition</li>
-            <li>Hydration</li>
-            <li>Love and Affection</li>
-        </ul>
-    </section>
-    
-    <section class="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md">
-        <h2 class="text-2xl text-red-600 mb-4">Nutrition to Keep Pets Healthy</h2>
-        <div class="image-container"><img src="https://tse4.mm.bing.net/th?id=OIP.NRWIKf4SAqcFP0gt0gk16gHaEK&pid=Api&P=0&h=180" alt="Nutrition"></div>
-        <p class="text-lg">Provide a well-balanced diet that meets the specific nutritional needs of your pet. Consult with a veterinarian to determine the appropriate type and amount of food for your pet's age, breed, size, and health condition.</p>
-        <ul class="list-disc pl-8">
-            <li><b>Balanced Diet:</b> Feed a balanced and complete commercial dog food that meets the nutritional requirements for your dog's life stage (puppy, adult, senior).</li>
-            <li><b>Protein:</b> Dogs need a good source of animal-based protein. Look for high-quality protein sources like chicken, beef, or fish.</li>
-            <li><b>Avoid Human Food:</b> Some human foods can be toxic to dogs, such as chocolate, onions, garlic, grapes, and certain artificial sweeteners like xylitol.</li>
-            <li><b>Portion Control:</b> Be mindful of portion sizes to prevent obesity, especially for less active dogs</li>
-        </ul>
-    </section>
-    
-    <section class="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md">
-        <h2 class="text-2xl text-red-600 mb-4"><b>Signs of Illness in Pets</b></h2>
-        <ul class="list-disc pl-8">
-            <li>Vomiting or Diarrhea</li>
-            <li>Changes in appetite or drinking habits</li>
-            <li>Changes in behavior or activity level</li>
-            <li>Lumps, bumps, or skin problems</li>
-            <li>Increased or Decreased Urination</li>
-        </ul>
-        <p class="text-lg">Dear pet guardians, be vigilant. Subtle changes in appearance or behavior could signal health issues in your cherished companions. Promptly consult your veterinarian for discerning guidance. Prioritize the well-being of your beloved pets with regular professional assessments.</p>
-    </section>
-    <!-- Continue the structure below for the additional sections -->
+            // Animate sections on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
 
-<section class="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md">
-    <h2 class="text-2xl text-red-600 mb-4">Refer to these links to understand more</h2>
-    <a href="https://youtu.be/j7UHbY5FRvw?si=R73GaSjmQrrtmjxE" class="text-blue-500">Everything You Need to Know About Dog Nutrition</a><br>
-    <a href="https://youtu.be/EM5sUs4ht5o?si=8RCkt5KRFe1OFoOW" class="text-blue-500">Foods dogs cannot eat</a><br>
-    <a href="https://youtu.be/HpRDVIn7ldw?si=wALFEKJCiv__6eMv" class="text-blue-500">Raw dog food vs cooked dog food</a><br>
-    <a href="https://youtu.be/f6vsg183Xa0?si=JoivA6xhtRklJHaI" class="text-blue-500">The Top 10 Best Meats For Your Pet's Raw Diet</a><br>
-    <a href="https://youtu.be/x7We-ReAyo4?si=_ZSg2zG6mZvHEmth" class="text-blue-500">How to Raw Feed your Cat (Complete Nutrition Guide)</a><br>
-    <a href="https://youtu.be/qoDgKmIGMr0?si=3lwtM3m9tvJzRWs6" class="text-blue-500">15 Strangest Cat Behaviors Explained</a><br>
-    <a href="https://youtu.be/Xz6yBbBRr8Y?si=JkAmpYvPwh05U03y" class="text-blue-500">HOW TO UNDERSTAND YOUR CAT BETTER</a><br>
-    <a href="https://youtu.be/777F2k72yoo?si=i-Qou2SFy7GsafXA" class="text-blue-500">10 Scientific Ways to Get a Cat to Like You</a><br>
-    <a href="https://youtu.be/SgCIZZodox8?si=jQIIrJeXGl8E3gp-" class="text-blue-500">15 Things Dogs Love the Most</a><br>
-    <a href="https://youtu.be/HCCsDCKSe1s?si=D1OSJTu4-g0xBu5m" class="text-blue-500">Tortoise Daily Care Routine</a>
-</section>
-<footer class="bg-gray-800 text-white p-4 text-center">
-    <div class="container mx-auto">
-        <p>&copy; 2024 Pet-Care. All rights reserved.</p>
-    </div>
-</footer>
-
-<!-- Add more sections as needed -->
-
-</body>
-</html>
-
-    
-
-    <!-- Repeat the structure below for other sections -->
-
+            document.querySelectorAll('.wellness-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>

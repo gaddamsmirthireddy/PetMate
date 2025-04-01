@@ -11,59 +11,206 @@
     
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background-color: #333;
-            color: whitesmoke;
-            padding: 15px;
-            text-align: center;
-            justify-content: center;
-        }
-
-        section {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1{
-            color: whitesmoke;
-        }
-
-        p {
             line-height: 1.6;
-            color: #666;
         }
 
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-            padding-left: 20px;
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/pics9/bgk.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
             position: relative;
         }
 
-        ul li:before {
-            content: "•";
-            color: #4a5568;
-            font-weight: bold;
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #ffffff;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
             position: absolute;
-            left: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            border-radius: 2px;
+        }
+
+        .section-content {
+            color: #ffffff;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+
+        .community-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+
+        .community-title {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .community-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #4ecdc4;
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            padding: 1rem;
+            border-left: 4px solid #4ecdc4;
+            background: rgba(78, 205, 196, 0.1);
+            border-radius: 0 10px 10px 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 4rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section-content {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 
-<body class="bg-gray-100">
+<body>
     <header>
         <nav class="text-white w-full h-14 flex justify-between px-5 md:px-6 bg-black" role="navigation" aria-label="Main navigation">
             <div class="pt-2 font-extrabold text-2xl">
@@ -82,32 +229,57 @@
     </header>
 
     <main>
-        <section class="mt-8">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6">Welcome to PetMate - Your Pet's Best Friend!</h2>
-            <p class="mb-6">
+        <section class="hero-section">
+            <h1 class="hero-title">Welcome to PetMate</h1>
+            <p class="hero-subtitle">Your Pet's Best Friend - Where Love and Care Come Together</p>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Our Mission</h2>
+            <p class="section-content">
                 At PetMate, we believe in providing exceptional care to your beloved pets. Our mission is to create a
                 community where pet lovers come together to share their passion, find valuable information, and create
-                lasting connections.
+                lasting connections. We strive to make a difference in the lives of pets and their owners through
+                comprehensive care and support.
             </p>
+        </section>
 
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Our Services</h2>
-            <p class="mb-4">
-                PetMate offers a range of services to ensure the well-being of your furry friends:
-            </p>
-            <ul class="mb-6">
-                <li>Adoption Services: Helping pets find loving homes.</li>
-                <li>Wellness Programs: Ensuring your pet's health and happiness.</li>
-                <li>Quality Pet Food: Nourishing your pets with the best nutrition.</li>
-                <li>Veterinary Appointments: Access to experienced veterinarians for your pet's health needs.</li>
-            </ul>
+        <section class="content-section">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3 class="service-title">Adoption Services</h3>
+                    <p class="service-description">Helping pets find their perfect forever homes through our comprehensive adoption program.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">❤️</div>
+                    <h3 class="service-title">Wellness Programs</h3>
+                    <p class="service-description">Ensuring your pet's health and happiness with our specialized wellness programs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🍽️</div>
+                    <h3 class="service-title">Quality Pet Food</h3>
+                    <p class="service-description">Providing premium nutrition options to keep your pets healthy and happy.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👨‍⚕️</div>
+                    <h3 class="service-title">Veterinary Care</h3>
+                    <p class="service-description">Access to experienced veterinarians for your pet's health needs.</p>
+                </div>
+            </div>
+        </section>
 
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Join Our Pet-Loving Community!</h2>
-            <p class="mb-6">
-                PetMate goes beyond traditional pet care by fostering a vibrant and supportive community of pet lovers. Our platform is a place where passionate pet owners can connect, share experiences, and provide support to one another. Additionally, PetMate serves as a valuable resource for those searching for information about their lost pets, helping reunite families with their furry members.
+        <section class="community-section">
+            <h2 class="community-title">Join Our Pet-Loving Community!</h2>
+            <p class="community-text">
+                PetMate goes beyond traditional pet care by fostering a vibrant and supportive community of pet lovers. 
+                Our platform is a place where passionate pet owners can connect, share experiences, and provide support 
+                to one another. Additionally, PetMate serves as a valuable resource for those searching for information 
+                about their lost pets, helping reunite families with their furry members.
             </p>
-            
-            <div class="text-center italic text-gray-700">
-                <p>We Together can create a community that shares in the love and companionship that our pets bring into our lives.</p>
+            <div class="quote">
+                "We Together can create a community that shares in the love and companionship that our pets bring into our lives."
             </div>
         </section>
     </main>

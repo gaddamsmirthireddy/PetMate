@@ -3,330 +3,478 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Community</title>
+    <meta name="description" content="Join PetMate's vibrant community of pet lovers. Connect, share experiences, and find support in our pet-loving community.">
+    <meta name="keywords" content="pet community, pet lovers, pet support, pet sharing, pet experiences">
+    <title>Pet Community - PetMate</title>
+    <link rel="stylesheet" href="output.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Rubik+Burned&display=swap');
-
         body {
-            font-family: 'Grape Nuts', cursive;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #0f172a;
+            color: #ffffff;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #001f4d, #003366);
-            color: #ffffff;
-            font-size: 30px;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            line-height: 1.6;
         }
 
-        header {
-            background-color: black;
-            color: #ffffff;
-            padding: 5px;
+        .hero-section {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('/pics9/bgk.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 2rem;
             text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 70px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 3rem;
+            position: relative;
         }
 
-        .header-content {
-            display: inline;
-            align-items: center;
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .community-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .community-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .card-description {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .card-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            color: #60a5fa;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .join-button {
+            background: linear-gradient(45deg, #3b82f6, #60a5fa);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .join-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(30, 41, 59, 0.5);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+        }
+
+        .search-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(30, 41, 59, 0.5);
+            margin: 2rem auto;
+            border-radius: 10px;
+            max-width: 1200px;
             justify-content: center;
         }
 
-        .logo {
-            height: 65px;
-            width: 80px;
-            margin-right: 10px;
-        }
-
-        #petForm, #petList, #authSection, #searchSection, #eventSection, #lostPetsSection, #messageSection, #adoptionSection {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background: linear-gradient(to right, #001f4d, #003366);
-            color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-        }
-
-        h2, h3, label {
-            color: #ffffff;
-        }
-
-        form input, form textarea, form button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-        }
-
-        input[type="file"], form button {
-            background-color: #001f4d;
-            color: #ffffff;
+        .filter-button {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
             cursor: pointer;
-        }
-
-        form button {
+            transition: all 0.3s ease;
             font-weight: bold;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .like-button, .submit-comment, button {
-            cursor: pointer;
-            background-color: #001f4d;
+        .filter-button:hover, .filter-button.active {
+            background: linear-gradient(45deg, #3b82f6, #60a5fa);
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.9);
+            z-index: 1000;
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-menu li {
+            text-align: center;
+        }
+
+        .mobile-menu a {
             color: white;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            margin-top: 10px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+            display: block;
         }
 
-        .comment-section textarea {
-            width: 90%;
-            padding: 5px;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        .comment-section {
-            margin-top: 20px;
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .like-button:hover, .submit-comment:hover {
-            background-color: #00274d;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .event-card, .pet-post {
-            margin-top: 20px;
-            padding: 20px;
-            border: 2px solid black;
-            border-radius: 10px;
-        }
-
-        /* Responsive Styles */
-        @media screen and (max-width: 768px) {
-            body {
-                font-size: 24px;
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
             }
 
-            header {
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .community-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .filter-buttons {
                 flex-direction: column;
-                height: auto;
+                align-items: stretch;
+                margin: 1rem;
             }
 
-            form input, form textarea, form button {
-                font-size: 18px;
+            .filter-button {
+                text-align: center;
             }
 
-            .logo {
-                width: 70px;
-                height: 60px;
+            .mobile-menu {
+                display: block;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
             }
 
-            nav ul {
+            .mobile-menu.active {
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 4rem 1rem;
+            }
+
+            .card-stats {
                 flex-direction: column;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 0.5rem 0;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="text-white w-full h-14 flex justify-between px-5 md:px-6 bg-black">
-        <div class="pt-2 font-extrabold text-2xl">PETMATE</div>
-        <ul class="md:flex hidden font-semibold text-center">
-            <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500"><a href="home.html">Home</a></li>
-            <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500"><a href="about.html">About</a></li>
-            <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500"><a href="Services.html">Services</a></li>
-            <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500"><a href="communitypets.html">Community</a></li>
-        </ul>
-        <div class="md:hidden">
-            <a class="text-4xl" href="#">&#8801;</a>
-        </div>
-    </nav>
-    
     <header>
-        <h1>Pet Community</h1>
-        <div class="header-content"><img src="https://media.gettyimages.com/id/159132783/photo/collie-dog-on-black-background.jpg?s=612x612&w=0&k=20&c=FSVNbnxeQNYhclnz6PSo30fk9-G48e6bp9Dzmk44rx0=" alt="Logo" class="logo"></div>
+        <nav class="text-white w-full h-14 flex justify-between px-5 md:px-6 bg-black" role="navigation" aria-label="Main navigation">
+            <div class="pt-2 font-extrabold text-2xl">
+                <a href="home.html" aria-label="PetMate Home">PETMATE</a>
+            </div>
+            <ul class="md:flex hidden font-semibold text-center" role="menubar">
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="home.html">Home</a></li>
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="about.html">About</a></li>
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="Services.html">Services</a></li>
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="communitypets.html" aria-current="page">Community</a></li>
+            </ul>
+            <button class="md:hidden text-4xl" aria-label="Toggle menu" aria-expanded="false">
+                &#8801;
+            </button>
+        </nav>
     </header>
 
-    <!-- User Registration and Profiles -->
-    <div id="authSection">
-        <button id="loginBtn">Login</button>
-        <button id="registerBtn">Register</button>
-        <div id="authForms" style="display: none;">
-            <form id="loginForm" style="display:none;">
-                <h3>Login</h3>
-                <label for="username">Username:</label>
-                <input type="text" id="username" required>
-                <label for="password">Password:</label>
-                <input type="password" id="password" required>
-                <button type="button" onclick="login()">Login</button>
-            </form>
-            <form id="registerForm" style="display:none;">
-                <h3>Register</h3>
-                <label for="regUsername">Username:</label>
-                <input type="text" id="regUsername" required>
-                <label for="regPassword">Password:</label>
-                <input type="password" id="regPassword" required>
-                <button type="button" onclick="register()">Register</button>
-            </form>
+    <main>
+        <section class="hero-section">
+            <h1 class="hero-title">Join Our Pet Community</h1>
+            <p class="hero-subtitle">Connect with fellow pet lovers, share experiences, and be part of a supportive community dedicated to our furry friends.</p>
+        </section>
+
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search for pet communities, events, or discussions..." aria-label="Search communities">
         </div>
-    </div>
 
-    <!-- Pet Form and Posts Section -->
-    <div id="petForm">
-        <h2>Connect and Communicate with co-pet owners</h2>
-        <form id="petInfoForm">
-            <label for="petName">Pet Name:</label>
-            <input type="text" id="petName" required>
-            <label for="petType">Pet Type:</label>
-            <input type="text" id="petType" required>
-            <label for="petDescription">Description:</label>
-            <textarea id="petDescription" required></textarea>
-            <label for="petImage">Upload Image:</label>
-            <input type="file" id="petImage" accept="image/*">
-            <label for="petAge"> Pet Age:</label>
-            <input type="text" id="petAge">
-            <label for="isAdoptable">Available for Adoption:</label>
-            <input type="checkbox" id="isAdoptable">
-            <button type="button" onclick="submitPetInfo()">Submit</button>
-        </form>
-    </div>
+        <div class="filter-buttons">
+            <button class="filter-button active">All Communities</button>
+            <button class="filter-button">Dogs</button>
+            <button class="filter-button">Cats</button>
+            <button class="filter-button">Other Pets</button>
+            <button class="filter-button">Events</button>
+            <button class="filter-button">Discussions</button>
+        </div>
 
-    <div id="petList">
-        <h2>Recent Pet Posts</h2>
-        <div id="petPosts"></div>
-    </div>
+        <div class="community-grid">
+            <!-- Community Card 1 -->
+            <div class="community-card">
+                <img src="https://placekitten.com/400/300" alt="Cat lovers community" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">Cat Lovers Club</h2>
+                    <p class="card-description">A community dedicated to sharing cat care tips, adorable photos, and connecting with fellow cat enthusiasts.</p>
+                    <div class="card-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">2.5K</div>
+                            <div class="stat-label">Members</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">150</div>
+                            <div class="stat-label">Posts</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">89%</div>
+                            <div class="stat-label">Active</div>
+                        </div>
+                    </div>
+                    <button class="join-button">Join Community</button>
+                </div>
+            </div>
 
-    <!-- Pet Adoption Section -->
-    <div id="adoptionSection">
-        <h2>Pets Available for Adoption</h2>
-        <div id="adoptablePets"></div>
-    </div>
+            <!-- Community Card 2 -->
+            <div class="community-card">
+                <img src="https://placedog.net/400/300" alt="Dog training community" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">Dog Training Tips</h2>
+                    <p class="card-description">Share and learn effective dog training techniques, behavior tips, and success stories with other dog owners.</p>
+                    <div class="card-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">3.2K</div>
+                            <div class="stat-label">Members</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">280</div>
+                            <div class="stat-label">Posts</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">92%</div>
+                            <div class="stat-label">Active</div>
+                        </div>
+                    </div>
+                    <button class="join-button">Join Community</button>
+                </div>
+            </div>
 
-    <!-- Pet Search and Filter -->
-    <div id="searchSection">
-        <h2>Search for Pets</h2>
-        <label for="petSearchType">Search by Type:</label>
-        <input type="text" id="petSearchType">
-        <label for="petSearchLocation">Search by Location:</label>
-        <input type="text" id="petSearchLocation">
-        <button type="button" onclick="filterPets()">Search</button>
-    </div>
+            <!-- Community Card 3 -->
+            <div class="community-card">
+                <img src="https://placekitten.com/401/300" alt="Pet health community" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">Pet Health & Wellness</h2>
+                    <p class="card-description">Discuss pet health, nutrition, and wellness with experienced pet owners and veterinary professionals.</p>
+                    <div class="card-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">1.8K</div>
+                            <div class="stat-label">Members</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">420</div>
+                            <div class="stat-label">Posts</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">95%</div>
+                            <div class="stat-label">Active</div>
+                        </div>
+                    </div>
+                    <button class="join-button">Join Community</button>
+                </div>
+            </div>
+        </div>
+    </main>
 
-    <!-- Event Creation and Pet Meetups -->
-    <div id="eventSection">
-        <h2>Create a Pet Event</h2>
-        <form id="eventForm">
-            <label for="eventTitle">Event Title:</label>
-            <input type="text" id="eventTitle" required>
-            <label for="eventDate">Event Date:</label>
-            <input type="date" id="eventDate" required>
-            <label for="eventLocation">Location:</label>
-            <input type="text" id="eventLocation" required>
-            <button type="button" onclick="submitEvent()">Create Event</button>
-        </form>
-    </div>
-    <div id="eventsList">
-        <h2>Upcoming Events</h2>
-    </div>
+    <footer class="bg-gray-800 text-white p-4 text-center mt-8" role="contentinfo">
+        <div class="container mx-auto">
+            <p>&copy; 2024 Pet-Care. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <!-- Emergency Contact and Lost Pets Alerts -->
-    <div id="lostPetsSection">
-        <h2>Lost Pets Alerts</h2>
-        <label for="lostPetName">Lost Pet Name:</label>
-        <input type="text" id="lostPetName">
-        <label for="lastSeenLocation">Last Seen Location:</label>
-        <input type="text" id="lastSeenLocation">
-        <button type="button" onclick="submitLostPetAlert()">Submit Lost Pet Alert</button>
-    </div>
-
-    <!-- Direct Messaging Section -->
-    <div id="messageSection">
-        <h2>Direct Message a Pet Owner</h2>
-        <label for="recipientUsername">Recipient Username:</label>
-        <input type="text" id="recipientUsername">
-        <label for="messageContent">Message:</label>
-        <textarea id="messageContent"></textarea>
-        <button type="button" onclick="sendMessage()">Send Message</button>
+    <div class="mobile-menu" role="dialog" aria-label="Mobile navigation">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="communitypets.html">Community</a></li>
+        </ul>
     </div>
 
     <script>
-        // Handle pet submission
-        function submitPetInfo() {
-            const petName = document.getElementById("petName").value;
-            const petType = document.getElementById("petType").value;
-            const petDescription = document.getElementById("petDescription").value;
-            const petImage = document.getElementById("petImage").files[0];
-            const petAge = document.getElementById("petAge").value;
-            const isAdoptable = document.getElementById("isAdoptable").checked;
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mobile menu toggle
+            const menuButton = document.querySelector('button[aria-label="Toggle menu"]');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', () => {
+                    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+                    menuButton.setAttribute('aria-expanded', !isExpanded);
+                    mobileMenu.classList.toggle('active');
+                });
+            }
 
-            const petPost = document.createElement("div");
-            petPost.classList.add("pet-post");
-            petPost.innerHTML = `
-                <h3>${petName} (${petType}) - ${petAge} years old</h3>
-                <p>${petDescription}</p>
-                <img src="${URL.createObjectURL(petImage)}" alt="${petName}">
-                <p>${isAdoptable ? "Available for adoption" : "Not available for adoption"}</p>
-                <button class="like-button">Like</button>
-                <div class="comment-section">
-                    <textarea placeholder="Leave a comment..."></textarea>
-                    <button class="submit-comment">Submit Comment</button>
-                </div>
-            `;
-            document.getElementById("petPosts").prepend(petPost);
-            document.getElementById("petInfoForm").reset();
-        }
+            // Filter buttons
+            const filterButtons = document.querySelectorAll('.filter-button');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    // Add your filter logic here
+                });
+            });
 
-        // Login functionality
-        function login() {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            alert(`Logged in as ${username}`);
-        }
+            // Search functionality
+            const searchInput = document.querySelector('.search-input');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    // Add your search logic here
+                    console.log('Searching for:', e.target.value);
+                });
+            }
 
-        // Register functionality
-        function register() {
-            const username = document.getElementById("regUsername").value;
-            const password = document.getElementById("regPassword").value;
-            alert(`Registered as ${username}`);
-        }
+            // Join button functionality
+            const joinButtons = document.querySelectorAll('.join-button');
+            joinButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const communityName = button.closest('.community-card').querySelector('.card-title').textContent;
+                    alert(`You've joined the ${communityName}!`);
+                    // Add your join community logic here
+                });
+            });
 
-        // Pet search functionality
-        function filterPets() {
-            const type = document.getElementById("petSearchType").value;
-            const location = document.getElementById("petSearchLocation").value;
-            alert(`Searching for ${type} pets in ${location}`);
-        }
-
-        // Event creation functionality
-        function submitEvent() {
-            const eventTitle = document.getElementById("eventTitle").value;
-            const eventDate = document.getElementById("eventDate").value;
-            const eventLocation = document.getElementById("eventLocation").value;
-            alert(`Event Created: ${eventTitle} on ${eventDate} at ${eventLocation}`);
-        }
-
-        // Lost pet alert
-        function submitLostPetAlert() {
-            const petName = document.getElementById("lostPetName").value;
-            const lastSeenLocation = document.getElementById("lastSeenLocation").value;
-            alert(`Lost Pet Alert: ${petName} last seen at ${lastSeenLocation}`);
-        }
-
-        // Send message functionality
-        function sendMessage() {
-            const recipientUsername = document.getElementById("recipientUsername").value;
-            const messageContent = document.getElementById("messageContent").value;
-            alert(`Message sent to ${recipientUsername}: ${messageContent}`);
-        }
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (mobileMenu && mobileMenu.classList.contains('active') && 
+                    !e.target.closest('.mobile-menu') && 
+                    !e.target.closest('button[aria-label="Toggle menu"]')) {
+                    mobileMenu.classList.remove('active');
+                    menuButton.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
     </script>
 </body>
 </html>

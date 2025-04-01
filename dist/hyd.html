@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hyderabad pets</title>
+    <meta name="description" content="Find pets for adoption in Hyderabad - Cats, Dogs, and other animals looking for loving homes.">
+    <meta name="keywords" content="pet adoption, hyderabad pets, cats for adoption, dogs for adoption, pet shelter hyderabad">
+    <title>Hyderabad Pets - PetMate</title>
+    <link rel="stylesheet" href="output.css">
     <style>
-         body {
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-           
             text-align: center;
-            background: linear-gradient(to right,rgb(48, 38, 38),rgb(173, 136, 136),rgb(65, 53, 53) );
+            background: linear-gradient(to right,rgb(48, 38, 38),rgb(173, 136, 136),rgb(65, 53, 53));
             color:rgb(20, 18, 18);
-            
-            
-            
         }
         section {
             padding: 20px;
@@ -28,256 +27,299 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             display: inline-block;
-            
-        }  
+            transition: transform 0.3s ease;
+        }
+        .pet-card:hover {
+            transform: translateY(-5px);
+        }
         .pet-img {
             width:500px;
             height:400px;
             object-fit: cover;
             border-radius: 18px 18px 0 0;
-        }  
+        }
         .pet-details {
             padding: 20px;
-        }  
-        .container{
+        }
+        .container {
             display: flex;
             flex-wrap: wrap;
-        }  
-       
-a {
-    color: #aeb4b9;
-}
-
-
-a:visited {
-    color: black; 
-}
-
-
-a:hover {
-    color: #497036;
-}
-
-
-a:active {
-    color: #267d95; 
-}
-      
-          
-        
+            justify-content: center;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 50px;
+            margin: 40px 0;
+            color: white;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        button {
+            background-color: #4a5568;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2d3748;
+        }
     </style>
 </head>
 <body>
-    <h1 style="text-align:center"><a href="#CATS">CATS</a></h1>
-    <h1 style="text-align:center"><a href="#DOGS">DOGS</a></h1>
-    <h1 style="text-align:center"><a href="#OTHER ANIMALS">OTHER ANIMALS</a></h1>
-    
+    <header>
+        <nav class="text-white w-full h-14 flex justify-between px-5 md:px-6 bg-black" role="navigation" aria-label="Main navigation">
+            <div class="pt-2 font-extrabold text-2xl">
+                <a href="home.html" aria-label="PetMate Home">PETMATE</a>
+            </div>
+            <ul class="md:flex hidden font-semibold text-center" role="menubar">
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="home.html">Home</a></li>
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="about.html">About</a></li>
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="Services.html">Services</a></li>
+                <li class="mx-[10px] cursor-pointer pt-2 hover:underline hover:text-red-500" role="menuitem"><a href="communitypets.html">Community</a></li>
+            </ul>
+            <button class="md:hidden text-4xl" aria-label="Toggle menu" aria-expanded="false">
+                &#8801;
+            </button>
+        </nav>
+    </header>
 
-    <section id="CATS">
-        <div class="container">
-        <div class="pet-card" >
-            <img class="pet-img" src="https://placekitten.com/800/400" alt="Cat">
-            <div class="pet-details">
-                <h2>Fluffy</h2>
-                <p>Age: 2 years</p>
-                <p>Breed: Domestic Shorthair</p>
-                <p>Gender: Female</p>
-                <p>Location: Shelter</p>
-                <button>Contact Us</button>
-            </div>
-        </div>
-        <div class="pet-card">
-            <img class="pet-img" src="https://cdn.shopify.com/s/files/1/0565/8021/0861/t/617/assets/xzspxu-1688378235133_800x.webp?v=1688378236" alt="Cat">
-            <div class="pet-details">
-                
-                <h2>Kitty</h2>
-                <p>Age: 1 years</p>
-                <p>Breed: Himalayan cat</p>
-                <p>Gender: Female</p>
-                
-                <button>Contact Us</button>
-                
-            </div>
-        </div>
-            <div class="pet-card">
-            <img class="pet-img" src="https://cdn.shopify.com/s/files/1/0565/8021/0861/t/617/assets/depositphotos_54654119-stock-photo-white-persian-cat-walking-1688380757929_800x.jpg?v=1688380758" alt="Cat">
-            <div class="pet-details">
-                
-                <h2>Rock</h2>
-                <p>Age: 2 years</p>
-                <p>Breed:Persian Cat</p>
-                <p>Gender: Male</p>
-                <p>Location: Shelter</p>
-                <button>Contact Us</button>
-                
-            </div>
-        </div>
-        <div class="pet-card">
-            <img class="pet-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/BombayKittenWaffle.jpg/330px-BombayKittenWaffle.jpg" alt="Cat">
-            <div class="pet-details">
-                
-                <h2>Harry</h2>
-                <p>Age: 6 Months</p>
-                <p>Breed:Bombay Cat</p>
-                <p>Gender: Male</p>
-               
-                <button>Contact Us</button>
-                
-            </div>
-        </div>
+    <main>
+        <div class="nav-links">
+            <a href="#CATS">CATS</a>
+            <a href="#DOGS">DOGS</a>
+            <a href="#OTHER ANIMALS">OTHER ANIMALS</a>
         </div>
 
+        <section id="CATS">
+            <h2 class="section-title">CATS</h2>
+            <div class="container">
+                <div class="pet-card" >
+                    <img class="pet-img" src="https://placekitten.com/800/400" alt="Cat">
+                    <div class="pet-details">
+                        <h2>Fluffy</h2>
+                        <p>Age: 2 years</p>
+                        <p>Breed: Domestic Shorthair</p>
+                        <p>Gender: Female</p>
+                        <p>Location: Shelter</p>
+                        <button>Contact Us</button>
+                    </div>
+                </div>
+                <div class="pet-card">
+                    <img class="pet-img" src="https://cdn.shopify.com/s/files/1/0565/8021/0861/t/617/assets/xzspxu-1688378235133_800x.webp?v=1688378236" alt="Cat">
+                    <div class="pet-details">
+                        
+                        <h2>Kitty</h2>
+                        <p>Age: 1 years</p>
+                        <p>Breed: Himalayan cat</p>
+                        <p>Gender: Female</p>
+                        
+                        <button>Contact Us</button>
+                        
+                    </div>
+                </div>
+                <div class="pet-card">
+                    <img class="pet-img" src="https://cdn.shopify.com/s/files/1/0565/8021/0861/t/617/assets/depositphotos_54654119-stock-photo-white-persian-cat-walking-1688380757929_800x.jpg?v=1688380758" alt="Cat">
+                    <div class="pet-details">
+                        
+                        <h2>Rock</h2>
+                        <p>Age: 2 years</p>
+                        <p>Breed:Persian Cat</p>
+                        <p>Gender: Male</p>
+                        <p>Location: Shelter</p>
+                        <button>Contact Us</button>
+                        
+                    </div>
+                </div>
+                <div class="pet-card">
+                    <img class="pet-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/BombayKittenWaffle.jpg/330px-BombayKittenWaffle.jpg" alt="Cat">
+                    <div class="pet-details">
+                        
+                        <h2>Harry</h2>
+                        <p>Age: 6 Months</p>
+                        <p>Breed:Bombay Cat</p>
+                        <p>Gender: Male</p>
+                       
+                        <button>Contact Us</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        
-    </section >
-    <br>
-    <hr>
-    <br><br>
+        <section id="DOGS">
+            <h2 class="section-title">DOGS</h2>
+            <div class="container">
+                <div class="pet-card">
+                    <img class="pet-img" src="https://static.javatpoint.com/gk/images/dog-breeds-in-india13.jpg" alt="dog">
+                    <div class="pet-details">
+                        <h2>Sony</h2>
+                        <p>Age: 3 years</p>
+                        <p>Breed: Indian Spitz</p>
+                        <p>Gender: Female</p>
+                        
+                        <button>Contact Us</button>
+                    </div>
+                </div>
+                <div class="pet-card">
+                    <img class="pet-img" src="https://static.javatpoint.com/gk/images/dog-breeds-in-india10.jpg" alt="dog">
+                    <div class="pet-details">
+                        
+                        <h2>Mahan</h2>
+                        <p>Age: 4 years</p>
+                        <p>Breed: Gaddi Kutta</p>
+                        <p>Gender:Male</p>
+                        
+                        <button>Contact Us</button>
+                        
+                    </div>
+                </div>
+                <div class="pet-card">
+                    <img class="pet-img" src="https://imgs.search.brave.com/dYfqr-O6sn71fhwJqxn0ZDAnTpFhlqDDu9bIi1FqWK8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM3/MjUzMDAxNC9waG90/by9jdXRlLW11enps/ZS1vZi1hLXBvbWVy/YW5pYW4tZG9nLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz0x/cHZ3TkJyLXltenNf/SWpqald0dHZaWE9p/dFd0XzBvbEU2SGlG/bzJYdFpJPQ" alt="dog">
+                    <div class="pet-details">
+                        
+                        <h2>Candy</h2>
+                        <p>Age: 1 years</p>
+                        <p>Breed:Pomeranian</p>
+                        <p>Gender: Male</p>
+                        
+                        <button>Contact Us</button>
+                        
+                    </div>
+                </div>
+                <div class="pet-card">
+                    <img class="pet-img" src="https://imgs.search.brave.com/XDixeGE8J723V1z7dZWvO6OA5umJ0KvKdiZoMQzd-X0/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA1LzE1LzI3LzE5/LzM2MF9GXzUxNTI3/MTk2MV9EaXdPUGdI/ZTdOSE11Y1FuU2Fj/YzE3S1dYUlJQd3pi/QS5qcGc" alt="dog">
+                    <div class="pet-details">
+                        
+                        <h2>Rosy</h2>
+                        <p>Age: 10 Months</p>
+                        <p>Breed:Shih Tzu</p>
+                        <p>Gender: Female</p>
+                       
+                        <button>Contact Us</button>
+                        
+                    </div>
+                </div>
+                <div class="pet-card">
+                    <img class="pet-img" src="https://imgs.search.brave.com/lGqYg4NKQ7GVo4gnYhtCJQg0GF4WPP4GiiUsf4Clnys/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzJjL2Zh/LzE1LzJjZmExNWZk/ZDg3MzU5MGE0Njk1/ODI1MzY1MTU3M2Vm/LmpwZw" alt="dog">
+                    <div class="pet-details">
+                        
+                        <h2>Cheechu</h2>
+                        <p>Age: 5 Months</p>
+                        <p>Breed:Chow Chow</p>
+                        <p>Gender: Female</p>
+                       
+                        <button>Contact Us</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <h1 style="text-align:center;font-size: 50px;">DOGS</h1>
+        <section id="OTHER ANIMALS">
+            <h2 class="section-title">OTHER ANIMALS</h2>
+            <div class="container">
+                <div class="pet-card">
+                    <img class="pet-img" src="https://www.petsdevotee.com/blog/wp-content/uploads/2020/09/Satin.jpg" alt="rabbit">
+                    <div class="pet-details">
+                        <h2>Bunny</h2>
+                        <p>Age: 1 years</p>
+                        <p>Breed: Satin</p>
+                        <p>Gender: Female</p>
+                        
+                        <button>Contact Us</button>
+                    </div>
+                </div>
+                <div class="pet-card">
+                    <img class="pet-img" src="https://www.petsdevotee.com/blog/wp-content/uploads/2020/09/Soviet-Chinchilla.jpg" alt="rabbit">
+                    <div class="pet-details">
+                        
+                        <h2>Auraa</h2>
+                        <p>Age: 2 years</p>
+                        <p>Breed: Soviet Chinchilla</p>
+                        <p>Gender:male</p>
+                        
+                        <button>Contact Us</button>
+                        
+                    </div>
+                </div>
+                <div class="pet-card">
+                    <img class="pet-img" src="https://a-z-animals.com/media/2021/05/Favorite-and-Most-Popular-Animals_-Monkey.jpg" alt="monkey">
+                    <div class="pet-details">
+                        
+                        <h2>Chotu</h2>
+                        <p>Age: 3 years</p>
+                        <p>Breed:Capuchin</p>
+                        <p>Gender: Male</p>
+                        
+                        <button>Contact Us</button>
+                        
+                    </div>
+                </div>
+                <div class="pet-card">
+                    <img class="pet-img" src="https://imgs.search.brave.com/KyFImGvUwnJKir7vt0-eZRTQMvrixHBK80pmXTVWMDY/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/cmVwdGlsZWRpcmVj/dC5jb20vd3AtY29u/dGVudC91cGxvYWRz/LzIwMjAvMTAvcnVz/c2lhbi10b3J0b2lz/ZS1nb29kLXBldC53/ZWJw" alt="tort">
+                    <div class="pet-details">
+                        
+                        <h2>Babbu</h2>
+                        <p>Age: 2 years</p>
+                        <p>Breed:Stray animal</p>
+                        <p>Gender: Female</p>
+                       
+                        <button>Contact Us</button>
+                        
+                    </div>
+                </div>
+                <div class="pet-card">
+                    <img class="pet-img" src="https://imgs.search.brave.com/lGqYg4NKQ7GVo4gnYhtCJQg0GF4WPP4GiiUsf4Clnys/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzJjL2Zh/LzE1LzJjZmExNWZk/ZDg3MzU5MGE0Njk1/ODI1MzY1MTU3M2Vm/LmpwZw" alt="Cat">
+                    <div class="pet-details">
+                        
+                        <h2>Cheechu</h2>
+                        <p>Age: 5 Months</p>
+                        <p>Breed:Chow Chow</p>
+                        <p>Gender: Female</p>
+                       
+                        <button>Contact Us</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <section id="DOGS">
-        <div class="container">
-        <div class="pet-card">
-            <img class="pet-img" src="https://static.javatpoint.com/gk/images/dog-breeds-in-india13.jpg" alt="dog">
-            <div class="pet-details">
-                <h2>Sony</h2>
-                <p>Age: 3 years</p>
-                <p>Breed: Indian Spitz</p>
-                <p>Gender: Female</p>
-                
-                <button>Contact Us</button>
-            </div>
+    <footer class="bg-gray-800 text-white p-4 text-center mt-8" role="contentinfo">
+        <div class="container mx-auto">
+            <p>&copy; 2024 Pet-Care. All rights reserved.</p>
         </div>
-        <div class="pet-card">
-            <img class="pet-img" src="https://static.javatpoint.com/gk/images/dog-breeds-in-india10.jpg" alt="dog">
-            <div class="pet-details">
-                
-                <h2>Mahan</h2>
-                <p>Age: 4 years</p>
-                <p>Breed: Gaddi Kutta</p>
-                <p>Gender:Male</p>
-                
-                <button>Contact Us</button>
-                
-            </div>
-            </div>
-            <div class="pet-card">
-            <img class="pet-img" src="https://imgs.search.brave.com/dYfqr-O6sn71fhwJqxn0ZDAnTpFhlqDDu9bIi1FqWK8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM3/MjUzMDAxNC9waG90/by9jdXRlLW11enps/ZS1vZi1hLXBvbWVy/YW5pYW4tZG9nLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz0x/cHZ3TkJyLXltenNf/SWpqald0dHZaWE9p/dFd0XzBvbEU2SGlG/bzJYdFpJPQ" alt="dog">
-            <div class="pet-details">
-                
-                <h2>Candy</h2>
-                <p>Age: 1 years</p>
-                <p>Breed:Pomeranian</p>
-                <p>Gender: Male</p>
-                
-                <button>Contact Us</button>
-                
-            </div>
-        </div>
-        <div class="pet-card">
-            <img class="pet-img" src="https://imgs.search.brave.com/XDixeGE8J723V1z7dZWvO6OA5umJ0KvKdiZoMQzd-X0/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA1LzE1LzI3LzE5/LzM2MF9GXzUxNTI3/MTk2MV9EaXdPUGdI/ZTdOSE11Y1FuU2Fj/YzE3S1dYUlJQd3pi/QS5qcGc" alt="dog">
-            <div class="pet-details">
-                
-                <h2>Rosy</h2>
-                <p>Age: 10 Months</p>
-                <p>Breed:Shih Tzu</p>
-                <p>Gender: Female</p>
-               
-                <button>Contact Us</button>
-                
-            </div>
-        </div>
-       <div class="pet-card">
-            <img class="pet-img" src="https://imgs.search.brave.com/lGqYg4NKQ7GVo4gnYhtCJQg0GF4WPP4GiiUsf4Clnys/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzJjL2Zh/LzE1LzJjZmExNWZk/ZDg3MzU5MGE0Njk1/ODI1MzY1MTU3M2Vm/LmpwZw" alt="dog">
-            <div class="pet-details">
-                
-                <h2>Cheechu</h2>
-                <p>Age: 5 Months</p>
-                <p>Breed:Chow Chow</p>
-                <p>Gender: Female</p>
-               
-                <button>Contact Us</button>
-                
-            </div>
-        </div>
-    </div>
-    <br><hr><br>
+    </footer>
 
-        
-    </section>
-    <section id="OTHER ANIMALS">
-    <h1 style="text-align:center;font-size: 50px;">OTHER ANIMALS</h1>
-
-    <section>
-        <div class="container">
-        <div class="pet-card">
-            <img class="pet-img" src="https://www.petsdevotee.com/blog/wp-content/uploads/2020/09/Satin.jpg" alt="rabbit">
-            <div class="pet-details">
-                <h2>Bunny</h2>
-                <p>Age: 1 years</p>
-                <p>Breed: Satin</p>
-                <p>Gender: Female</p>
-                
-                <button>Contact Us</button>
-            </div>
-        </div>
-        <div class="pet-card">
-            <img class="pet-img" src="https://www.petsdevotee.com/blog/wp-content/uploads/2020/09/Soviet-Chinchilla.jpg" alt="rabbit">
-            <div class="pet-details">
-                
-                <h2>Auraa</h2>
-                <p>Age: 2 years</p>
-                <p>Breed: Soviet Chinchilla</p>
-                <p>Gender:male</p>
-                
-                <button>Contact Us</button>
-                
-            </div>
-            </div>
-            <div class="pet-card">
-            <img class="pet-img" src="https://a-z-animals.com/media/2021/05/Favorite-and-Most-Popular-Animals_-Monkey.jpg" alt="monkey">
-            <div class="pet-details">
-                
-                <h2>Chotu</h2>
-                <p>Age: 3 years</p>
-                <p>Breed:Capuchin</p>
-                <p>Gender: Male</p>
-                
-                <button>Contact Us</button>
-                
-            </div>
-        </div>
-        <div class="pet-card">
-            <img class="pet-img" src="https://imgs.search.brave.com/KyFImGvUwnJKir7vt0-eZRTQMvrixHBK80pmXTVWMDY/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/cmVwdGlsZWRpcmVj/dC5jb20vd3AtY29u/dGVudC91cGxvYWRz/LzIwMjAvMTAvcnVz/c2lhbi10b3J0b2lz/ZS1nb29kLXBldC53/ZWJw" alt="tort">
-            <div class="pet-details">
-                
-                <h2>Babbu</h2>
-                <p>Age: 2 years</p>
-                <p>Breed:Stray animal</p>
-                <p>Gender: Female</p>
-               
-                <button>Contact Us</button>
-                
-            </div>
-        </div>
-       <div class="pet-card">
-            <img class="pet-img" src="https://imgs.search.brave.com/lGqYg4NKQ7GVo4gnYhtCJQg0GF4WPP4GiiUsf4Clnys/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzJjL2Zh/LzE1LzJjZmExNWZk/ZDg3MzU5MGE0Njk1/ODI1MzY1MTU3M2Vm/LmpwZw" alt="Cat">
-            <div class="pet-details">
-                
-                <h2>Cheechu</h2>
-                <p>Age: 5 Months</p>
-                <p>Breed:Chow Chow</p>
-                <p>Gender: Female</p>
-               
-                <button>Contact Us</button>
-                
-            </div>
-        </div>
-        </div>
-
-
-        
-    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mobile menu toggle
+            const menuButton = document.querySelector('button[aria-label="Toggle menu"]');
+            if (menuButton) {
+                menuButton.addEventListener('click', () => {
+                    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+                    menuButton.setAttribute('aria-expanded', !isExpanded);
+                    // Add your mobile menu toggle logic here
+                });
+            }
+        });
+    </script>
 </body>
 </html>
