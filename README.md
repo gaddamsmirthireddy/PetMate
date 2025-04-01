@@ -10,14 +10,11 @@ PetMate is an all-in-one online platform designed to cater to the diverse needs 
 - **Lost & Found Pet Search** – Help reunite missing pets with their owners.
 - **Community Support** – Engage with a network of pet lovers.
 
-## Installation
+## Installation & Usage
 To set up and run the project locally, follow these steps:
 
 ### Prerequisites
-Make sure you have the following installed:
-- [Node.js](https://nodejs.org/) and npm (for frontend)
-- [Python](https://www.python.org/) (if using Flask/FastAPI for backend)
-- [MySQL/PostgreSQL](https://www.mysql.com/) or MongoDB for the database
+Ensure you have a modern web browser installed.
 
 ### Clone the Repository
 ```sh
@@ -25,31 +22,13 @@ git clone https://github.com/your-username/petmate.git
 cd petmate
 ```
 
-### Backend Setup
-If the backend is built with Flask:
-```sh
-cd backend
-pip install -r requirements.txt
-python app.py
-```
-If using FastAPI:
-```sh
-cd backend
-pip install -r requirements.txt
-uvicorn app:app --reload
-```
-
-### Frontend Setup
-```sh
-cd frontend
-npm install
-npm start
-```
-
-## Usage
-Once both backend and frontend servers are running:
-- Open `http://localhost:3000` (or relevant frontend port) in your browser.
-- Use the platform to adopt pets, book services, and explore pet care resources.
+### Running the Website
+1. Navigate to the `dist` folder:
+   ```sh
+   cd dist
+   ```
+2. Open `home.html` in your browser.
+3. Browse through all the features and enjoy PetMate!
 
 ## Contributing
 We welcome contributions! To contribute:
@@ -57,10 +36,11 @@ We welcome contributions! To contribute:
 2. Create a new branch: `git checkout -b feature-name`
 3. Commit your changes: `git commit -m 'Add some feature'`
 4. Push to the branch: `git push origin feature-name`
-5. Submit a Pull Request.
+5. Submit a Pull Request for review.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 Happy Pet Parenting with PetMate! 🐶🐱
+
